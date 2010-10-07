@@ -1,0 +1,6 @@
+= proof
+
+Describe your project here
+
+:include:proof.rdoc
+

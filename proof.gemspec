@@ -18,5 +18,12 @@ Gem::Specification.new do |s|
 
   s.files        = `git ls-files`.split("\n")
   s.executables  = `git ls-files`.split("\n").map{|f| f =~ /^bin\/(.*)/ ? $1 : nil}.compact
-  s.require_path = 'lib'
+  
+  # Additional settings for GLI
+  s.require_paths << 'lib'
+  s.has_rdoc = true
+  s.extra_rdoc_files = ['README.rdoc','proof.rdoc']
+  s.rdoc_options << '--title' << 'Git Like Interface' << '--main' << 'README.rdoc' << '-ri'
+  s.bindir = 'bin'
+  
 end
