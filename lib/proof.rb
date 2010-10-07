@@ -1,0 +1,3 @@
+module Proof
+  # Your code goes here...
+end
