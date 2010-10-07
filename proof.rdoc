@@ -1,5 +1,5 @@
 = proof
 
-Generate this with
+TODO: Generate this with
     proof rdoc
 After you have described your command line interface
