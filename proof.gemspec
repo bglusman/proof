@@ -5,9 +5,9 @@ Gem::Specification.new do |s|
   s.name        = "proof"
   s.version     = Proof::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = []
-  s.email       = []
-  s.homepage    = "http://rubygems.org/gems/proof"
+  s.authors     = ['Stuart Ellis']
+  s.email       = ['stuart@stuartellis.eu']
+  s.homepage    = "http://github.com/stuartellis/proof"
   s.summary     = "Readability analyzer"
   s.description = "A readability analysis utility"
 
