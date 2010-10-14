@@ -12,6 +12,10 @@ To run this utility, type proof, followed by the name of the file to analyze:
 
 proof myworkofgenius.txt
 
+Specify options flags before the name of the file:
+
+proof [options] myworkofgenius.txt
+
 == Development
 
 The source code is published on GitHub:

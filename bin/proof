@@ -4,4 +4,4 @@
 
 require 'proof'
 
-Proof::Application.new(STDOUT)
+Proof::Application.run(STDOUT, ARGV)
