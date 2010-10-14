@@ -1,51 +1,7 @@
-#!/usr/bin/ruby
-$: << File.expand_path(File.dirname(__FILE__) + '/../lib')
-require 'rubygems'
-require 'gli'
+#!/usr/bin/env ruby -wKU
 
-include GLI
+# -*- encoding: utf-8 -*-
 
-desc 'Describe some switch here'
-switch [:s,:switch]
+require 'proof'
 
-desc 'Describe some flag here'
-default_value 'the default'
-arg_name 'The name of the argument'
-flag [:f,:flagname]
-
-desc 'Describe proof here'
-arg_name 'Describe arguments to proof here'
-command :proof do |c|
-  c.desc 'Describe a switch to proof'
-  c.switch :s
-
-  c.desc 'Describe a flag to proof'
-  c.default_value 'default'
-  c.flag :s
-  c.action do |global_options,options,args|
-
-    # Your command logic here
-     
-    # If you have any errors, just raise them
-    # raise "that command made no sense"
-  end
-end
-
-pre do |global,command,options,args|
-  # Pre logic here
-  # Return true to proceed; false to abourt and not call the
-  # chosen command
-  true
-end
-
-post do |global,command,options,args|
-  # Post logic here
-end
-
-on_error do |exception|
-  # Error logic here
-  # return false to skip default error handling
-  true
-end
-
-GLI.run(ARGV)
+Proof::Application.new(STDOUT)

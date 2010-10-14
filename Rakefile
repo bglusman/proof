@@ -1,26 +1,14 @@
 require 'bundler'
 Bundler::GemHelper.install_tasks
 
+require 'rake'
 require 'rake/clean'
-require 'rubygems'
-require 'rake/gempackagetask'
-require 'rake/rdoctask'
+require 'spec/rake/spectask'
 
-Rake::RDocTask.new do |rd|
-  rd.main = "README.rdoc"
-  rd.rdoc_files.include("README.rdoc","lib/**/*.rb","bin/**/*")
-  rd.title = 'Proof'
+CLEAN.include('pkg')
+CLOBBER.include('pkg', 'tmp')
+
+desc "Run all specs"
+Spec::Rake::SpecTask.new('spec') do |t|
+  t.spec_files = FileList['spec/**/*.spec']
 end
-
-spec = eval(File.read('proof.gemspec'))
-
-Rake::GemPackageTask.new(spec) do |pkg|
-end
-
-require 'rake/testtask'
-Rake::TestTask.new do |t|
-  t.libs << "test"
-  t.test_files = FileList['test/tc_*.rb']
-end
-
-task :default => :test

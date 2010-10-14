@@ -1,3 +1,1 @@
-module Proof
-  # Your code goes here...
-end
+require 'application'

@@ -8,23 +8,18 @@ Gem::Specification.new do |s|
   s.authors     = ['Stuart Ellis']
   s.email       = ['stuart@stuartellis.eu']
   s.homepage    = "http://github.com/stuartellis/proof"
-  s.summary     = "Readability analyzer"
-  s.description = "A readability analysis utility"
+  s.summary     = "A simple readability analyzer"
+  s.description = "A command-line utility for readability analysis"
 
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project         = "proof"
 
   s.add_dependency "lingua", ">= 0.6.2"
+  
   s.add_development_dependency "bundler", ">= 1.0.0"
+  s.add_development_dependency "rspec", ">= 1.3.0"
 
   s.files        = `git ls-files`.split("\n")
   s.executables  = `git ls-files`.split("\n").map{|f| f =~ /^bin\/(.*)/ ? $1 : nil}.compact
-  
-  # Additional settings for GLI
-  s.require_paths << 'lib'
-  s.has_rdoc = true
-  s.extra_rdoc_files = ['README.rdoc','proof.rdoc']
-  s.rdoc_options << '--title' << 'Git Like Interface' << '--main' << 'README.rdoc' << '-ri'
-  s.bindir = 'bin'
-  
+  s.require_path = 'lib'
 end
