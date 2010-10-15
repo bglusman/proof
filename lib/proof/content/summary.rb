@@ -3,13 +3,12 @@
 module Proof
   module Content
   
-    # Summary of the contents of a particular file
+    # Summary of a file
     class Summary
-      attr_accessor :file, :total_chars
+      attr_accessor :filename, :readability
     
-      def initialize(file=nil, total_chars=0)
-        @file = file
-        @total_chars = total_chars
+      def initialize(filename=nil)
+        @filename = filename
       end
     
     end
