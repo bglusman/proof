@@ -58,7 +58,8 @@ module Proof
       else
         report = report(@sources)
         # FIXME: Need to emit report data in config[:format]
-        # report.to_s
+        #template = File.read()
+        #report.render(template)
         exit
       end
     end
