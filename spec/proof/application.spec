@@ -10,7 +10,7 @@ module Proof
     it "should read a single filename from arguments" do
       args = ['example.txt']
       Proof::Application.run(output, args)
-      Proof::Application.source[0].should == 'example.txt'
+      Proof::Application.sources[0].should == 'example.txt'
     end
     
     it "should read the contents of the source file" do
@@ -19,7 +19,7 @@ module Proof
       content = Proof::Application.read_file(filename)
       content.length == 3481
     end
-    
+        
   end
   
 end
