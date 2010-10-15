@@ -10,9 +10,21 @@ module Proof
       @report = Proof::Report.new(@summaries)
     end
     
+    # Sets the date of the Report
+    def date()
+      @report.date = Time.now
+    end
+    
     # Returns the completed Report
     def report()
+      title()
+      date()
       @report
+    end
+    
+    # Sets the title of the Report
+    def title()
+      @report.title = "Readability Report"
     end
     
   end

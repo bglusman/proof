@@ -5,7 +5,7 @@ module Proof
   # Each Report encloses one or more Summary objects,
   # and also has it's own aggregate information 
   class Report
-    attr_accessor :summaries
+    attr_accessor :date, :summaries, :title
     
     def initialize(summaries)
       @summaries = summaries

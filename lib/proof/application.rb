@@ -58,7 +58,7 @@ module Proof
       else
         report = report(@sources)
         # FIXME: Need to emit report data in config[:format]
-        report.to_s
+        # report.to_s
         exit
       end
     end
