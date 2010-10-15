@@ -6,6 +6,8 @@ module Proof
     extend self
     attr_accessor :config, :output, :sources
         
+    FORMATS = [:markdown]
+        
     # Parse the provided arguments
     def read_arguments(args)
       @config = {} if @config == nil
@@ -35,11 +37,23 @@ module Proof
       File.read(filename)
     end
     
+    # Returns a ContentReport for the content 
+    def report(content)
+      report_builder = Proof::ReportBuilder.new(content)
+      report_builder.report()
+    end
+    
     # Executes the process
     def run(output=STDOUT, args=ARGV)
       @output = output
       @sources = read_arguments(args)
+      if @sources == nil
+        @output.puts = 'Please specify one or more files.'
+        exit(1)
+      else
+        process_sources(@sources)
+      end
     end
-    
+        
   end
 end

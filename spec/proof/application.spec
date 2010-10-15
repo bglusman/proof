@@ -30,13 +30,13 @@ module Proof
       it "should set output format from short-form argument" do
         args = ['-f', 'markdown', 'example.txt']
         Proof::Application.read_arguments(args)
-        Proof::Application.config[:format].should == 'markdown'
+        Proof::Application.config[:format].should == :markdown
       end
     
       it "should set output format from long-form argument" do
         args = ['--format=markdown', 'example.txt']
         Proof::Application.read_arguments(args)
-        Proof::Application.config[:format].should == 'markdown'
+        Proof::Application.config[:format].should == :markdown
       end
     
     end
@@ -48,19 +48,19 @@ module Proof
         content = Proof::Application.read_file(filename)
         content.length == 3481
       end
-    
+        
     end
-    
-    describe "#run" do
-    
-      it "should read the contents of the source file" do
-        filename = File.join('spec', 'files', 'small.txt')
-        content = Proof::Application.read_file(filename)
-        content.length == 3481
+      
+    describe "#report" do
+
+      it "should return a ContentReport for the provided content" do
+        content = contents('small.txt')
+        report = Proof::Application.report(content)
+        report.should be_kind_of(Proof::ContentReport)
       end
-    
+
     end
-    
+      
   end
-  
+      
 end
