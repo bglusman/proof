@@ -4,18 +4,19 @@ module Proof
   module Application
     require 'optparse'
     extend self
-    attr_accessor :format, :output, :sources
+    attr_accessor :config, :output, :sources
     
     # Parse the provided arguments
     def read_arguments(args)
+      @config = {} if @config == nil
       options = OptionParser.new() do |opts|
         opts.banner = "Usage: proof [options] FILE1 FILE2 FILE3"
         opts.separator ""
-        opts.separator "Specific options:"
-        opts.on( '-f FORMAT', '--format=FORMAT', 
-          'Specifies the format of the output' ) do |val| 
-            @format = val
-          exit
+        opts.separator "Options:"
+        opts.separator ""
+        opts.on( '-f', '--format FORMAT', 
+          'Specifies the format of the output' ) do |file|
+          @config[:format] = file
         end
         opts.on( '-v', '--version', 'Show version' ) do
           puts "Proof #{Proof::VERSION}"
