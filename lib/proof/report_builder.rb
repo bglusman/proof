@@ -2,11 +2,12 @@
 
 module Proof
   # Builder for Report objects
+  # Constructs a Report from one or more Summaries
   class ReportBuilder
-    attr_accessor :content, :report
-    def initialize(content)
-      @content = content
-      @report = Proof::ContentReport.new()
+    attr_accessor :report, :summaries
+    def initialize(summaries)
+      @summaries = summaries
+      @report = Proof::Report.new(@summaries)
     end
     
     # Returns the completed Report

@@ -37,9 +37,14 @@ module Proof
       File.read(filename)
     end
     
-    # Returns a ContentReport for the content 
-    def report(content)
-      report_builder = Proof::ReportBuilder.new(content)
+    # Returns a Report from the sources 
+    def report(sources)
+      summaries = []
+      sources.each do |source|
+        content = read_file(source)
+        summaries << Proof::Content::Analyzer.analyze(content)
+      end
+      report_builder = Proof::ReportBuilder.new(summaries)
       report_builder.report()
     end
     
@@ -51,7 +56,10 @@ module Proof
         @output.puts = 'Please specify one or more files.'
         exit(1)
       else
-        process_sources(@sources)
+        report = report(@sources)
+        # FIXME: Need to emit report data in config[:format]
+        report.to_s
+        exit
       end
     end
         

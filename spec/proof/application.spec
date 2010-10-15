@@ -53,10 +53,11 @@ module Proof
       
     describe "#report" do
 
-      it "should return a ContentReport for the provided content" do
-        content = contents('small.txt')
-        report = Proof::Application.report(content)
-        report.should be_kind_of(Proof::ContentReport)
+      it "should return a Report for a single source file" do
+        filename = File.join('spec', 'files', 'small.txt')
+        sources = [filename]
+        report = Proof::Application.report(sources)
+        report.should be_kind_of(Proof::Report)
       end
 
     end
