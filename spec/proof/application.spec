@@ -13,6 +13,13 @@ module Proof
       Proof::Application.source[0].should == 'example.txt'
     end
     
+    it "should read the contents of the source file" do
+      filename = File.join('spec', 'files', 'small.txt')
+      Proof::Application.output = output
+      content = Proof::Application.read_file(filename)
+      content.length == 3481
+    end
+    
   end
   
 end

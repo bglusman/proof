@@ -23,6 +23,11 @@ module Proof
       end
       options.parse!(args)
     end
+
+    # Returns the contents of the specified file    
+    def read_file(filename)
+      File.read(filename)
+    end
     
     # Executes the process
     def run(output=STDOUT, args=ARGV)
