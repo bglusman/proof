@@ -12,6 +12,10 @@ To run this utility, type proof, followed by the name of the file to analyze:
 
 proof myworkofgenius.txt
 
+To check multiple files at the same time, specify the names of each of the files to analyze:
+
+proof part1.txt part2.txt part3.txt
+
 Specify options flags before the name of the file:
 
 proof [options] myworkofgenius.txt

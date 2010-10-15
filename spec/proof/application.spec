@@ -19,6 +19,14 @@ module Proof
         sources[0].should == 'example.txt'
       end
     
+      it "should read three filenames from arguments" do
+        args = ['example1.txt', 'example2.txt', 'example3.txt']
+        sources = Proof::Application.read_arguments(args)
+        sources[0].should == 'example1.txt'
+        sources[1].should == 'example2.txt'
+        sources[2].should == 'example3.txt'
+      end
+    
     end
 
     describe "#read_file" do
