@@ -6,8 +6,15 @@ module Proof
     extend self
     attr_accessor :config, :output, :sources
         
-    FORMATS = [:markdown]
-        
+    FORMATS = {
+      :markdown => {:template => 'report.erb.md'}
+    }
+    
+    # Returns the template for the specified format
+    def get_template(format)
+      read_file(File.join('layouts', FORMATS[format][:template]))
+    end
+    
     # Parse the provided arguments
     def read_arguments(args)
       @config = {} if @config == nil
@@ -57,9 +64,8 @@ module Proof
         exit(1)
       else
         report = report(@sources)
-        # FIXME: Need to emit report data in config[:format]
-        #template = File.read()
-        #report.render(template)
+        template = get_template(config[:format])
+        report.render(template)
         exit
       end
     end

@@ -11,6 +11,11 @@ module Proof
       Proof::Application.output = output
     end
     
+    it "should get a template for the Markdown format" do
+      template = Proof::Application.get_template(:markdown)
+      template.should_not be_nil
+    end
+    
     describe "#read_arguments" do
     
       it "should read a single filename from arguments" do
