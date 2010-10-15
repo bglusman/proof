@@ -10,7 +10,7 @@ module Proof
     it "should read a single filename from arguments" do
       args = ['example.txt']
       Proof::Application.run(output, args)
-      Proof::Application.targets[0].should == 'example.txt'
+      Proof::Application.source[0].should == 'example.txt'
     end
     
   end

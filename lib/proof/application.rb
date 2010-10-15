@@ -4,7 +4,7 @@ module Proof
   module Application
     require 'optparse'
     extend self
-    attr_accessor :targets, :output
+    attr_accessor :source, :output
     
     # Parse the provided arguments
     def read_arguments(args)
@@ -27,7 +27,7 @@ module Proof
     # Executes the process
     def run(output=STDOUT, args=ARGV)
       @output = output
-      @targets = read_arguments(args)
+      @source = read_arguments(args)
     end
     
   end
