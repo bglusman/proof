@@ -64,7 +64,8 @@ module Proof
         exit(1)
       else
         report = report(@sources)
-        template = get_template(config[:format])
+        @config[:format] = :markdown if @config[:format] == nil
+        template = get_template(@config[:format])
         puts report.render(template)
         exit
       end
