@@ -5,7 +5,7 @@ module Proof
     require 'optparse'
     extend self
     attr_accessor :config, :output, :sources
-    
+        
     # Parse the provided arguments
     def read_arguments(args)
       @config = {} if @config == nil
@@ -15,8 +15,8 @@ module Proof
         opts.separator "Options:"
         opts.separator ""
         opts.on( '-f', '--format FORMAT', 
-          'Specifies the format of the output' ) do |file|
-          @config[:format] = file
+          'Specifies the format of the output' ) do |f|
+          @config[:format] = f.to_sym
         end
         opts.on( '-v', '--version', 'Show version' ) do
           puts "Proof #{Proof::VERSION}"
