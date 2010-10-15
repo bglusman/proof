@@ -9,7 +9,7 @@ module Proof
   
       it "should generate a Summary from the provided content" do
         content = contents('small.txt')
-        summary = Proof::Content::Analyzer.analyze(content)
+        summary = Proof::Content::Analyzer.analyze('small.txt', content)
         summary.should be_kind_of(Proof::Content::Summary)
       end
   

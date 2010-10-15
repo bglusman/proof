@@ -5,8 +5,8 @@ module Proof
     module Analyzer
       require 'lingua'
       # Returns a Summary of the provided content
-      def self.analyze(content)
-        summary = Proof::Content::Summary.new()
+      def self.analyze(filename, content)
+        summary = Proof::Content::Summary.new(filename)
         summary.readability = Lingua::EN::Readability.new(content)
         summary
       end

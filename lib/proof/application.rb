@@ -49,7 +49,7 @@ module Proof
       summaries = []
       sources.each do |source|
         content = read_file(source)
-        summaries << Proof::Content::Analyzer.analyze(content)
+        summaries << Proof::Content::Analyzer.analyze(source, content)
       end
       report_builder = Proof::ReportBuilder.new(summaries)
       report_builder.report()
@@ -65,7 +65,7 @@ module Proof
       else
         report = report(@sources)
         template = get_template(config[:format])
-        report.render(template)
+        puts report.render(template)
         exit
       end
     end
