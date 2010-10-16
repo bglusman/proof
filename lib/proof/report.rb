@@ -19,33 +19,13 @@ module Proof
       ERB.new(template).result(binding)
     end
     
-    # Returns the total number of characters for all of the summaries
-    def total_characters
-      @summaries.inject(0) do |total, summary|
-        total + summary.readability.num_characters
+    # For the specified attribute, 
+    # returns the total score for all of the summaries
+    def total(attribute)
+      @summaries.inject(0) do |t, summary|
+        t + summary.readability.send(attribute)
       end
     end
-    
-    # Returns the total number of paragraphs for all of the summaries
-    def total_paragraphs
-      @summaries.inject(0) do |total, summary|
-        total + summary.readability.num_paragraphs
-      end
-    end
-    
-    # Returns the total number of sentences for all of the summaries
-    def total_sentences
-      @summaries.inject(0) do |total, summary|
-        total + summary.readability.num_sentences
-      end
-    end
-    
-    # Returns the total number of words for all of the summaries
-    def total_words
-      @summaries.inject(0) do |total, summary|
-        total + summary.readability.num_words
-      end
-    end
-    
+        
   end
 end
