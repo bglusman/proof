@@ -25,9 +25,9 @@ Summary for <%= summary.filename %>
 Readability
 -----------
 
-* Flesch Reading Ease: <%= summary.readability.flesch %>
-* Flesch-Kincaid Grade Level: <%= summary.readability.kincaid %>
-* Gunning Fog Index: <%= summary.readability.fog %>
+* Flesch Reading Ease: <%= summary.readability.flesch.round(2) %>
+* Flesch-Kincaid Grade Level: <%= summary.readability.kincaid.round(2) %>
+* Gunning Fog Index: <%= summary.readability.fog.round(2) %>
 
 Totals
 ------
@@ -40,8 +40,8 @@ Totals
 Averages
 --------
 
-* Average words per sentence: <%= summary.readability.words_per_sentence %>
-* Average syllables per word: <%= summary.readability.syllables_per_word %>
+* Average words per sentence: <%= summary.readability.words_per_sentence.round(2) %>
+* Average syllables per word: <%= summary.readability.syllables_per_word.round(2) %>
 <% end %>
 - - -
 
