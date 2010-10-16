@@ -2,15 +2,13 @@
 
 Produced: <%= @date.strftime('%d-%b-%Y %H:%M:%S') %>
 
-Overall Readability
--------------------
+## Overall Readability ##
 
 * Flesch Reading Ease: <%= mean(:flesch).round(2) %>
 * Flesch-Kincaid Grade Level: <%= mean(:kincaid).round(2) %>
 * Gunning Fog Index: <%= mean(:fog).round(2) %>
 
-Totals
-------
+### Totals ###
 
 * Total files analyzed: <%= @summaries.length %>
 * Total paragraphs: <%= total(:num_paragraphs) %>
@@ -18,35 +16,31 @@ Totals
 * Total words: <%= total(:num_words) %>
 * Total characters: <%= total(:num_characters) %>
 
-List of Files
--------------
+### List of Files ###
 
 <% @summaries.each do |summary| %>
 * <%= summary.filename %>
 <% end %>
 
-File Summaries
---------------
-<% @summaries.each do |summary| %>
-Summary for <%= summary.filename %>
+## File Summaries ##
 
-Readability
------------
+<% @summaries.each do |summary| %>
+### Summary for <%= summary.filename %> ###
+
+#### Readability ####
 
 * Flesch Reading Ease: <%= summary.readability.flesch.round(2) %>
 * Flesch-Kincaid Grade Level: <%= summary.readability.kincaid.round(2) %>
 * Gunning Fog Index: <%= summary.readability.fog.round(2) %>
 
-Totals
-------
+#### Totals ####
 
 * Total paragraphs: <%= summary.readability.num_paragraphs %>
 * Total sentences: <%= summary.readability.num_sentences %>
 * Total words: <%= summary.readability.num_words %>
 * Total characters: <%= summary.readability.num_characters %>
 
-Averages
---------
+#### Averages ####
 
 * Average words per sentence: <%= summary.readability.words_per_sentence.round(2) %>
 * Average syllables per word: <%= summary.readability.syllables_per_word.round(2) %>
