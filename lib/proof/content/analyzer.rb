@@ -4,6 +4,7 @@ require 'lingua'
 
 module Proof
   module Content
+    # Encloses methods for providing analysis of content
     module Analyzer
       # Returns a Summary of the provided content
       def self.analyze(filename, content)
