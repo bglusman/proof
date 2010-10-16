@@ -7,7 +7,6 @@ module Proof
   # Each Report encloses one or more Summary objects,
   # and also has it's own aggregate information 
   class Report
-    include ERB::Util
     attr_accessor :date, :summaries, :title
     
     def initialize(summaries)
