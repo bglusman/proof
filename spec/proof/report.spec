@@ -16,7 +16,7 @@ module Proof
       output.should_not be_nil
     end
     
-    context "calculated totals" do
+    describe "#report calculated totals" do
 
       it "should give the mean number of characters" do
         report_builder = Proof::ReportBuilder.new(summaries)
@@ -48,7 +48,7 @@ module Proof
       
     end
     
-    context "calculated means" do
+    describe "#report calculated means" do
 
       it "should give the mean number of characters" do
         report_builder = Proof::ReportBuilder.new(summaries)
