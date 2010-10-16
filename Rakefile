@@ -4,7 +4,6 @@ Bundler::GemHelper.install_tasks
 require 'rake'
 require 'rake/clean'
 require 'spec/rake/spectask'
-require 'irb'
 
 CLEAN.include('pkg')
 CLOBBER.include('tmp')
