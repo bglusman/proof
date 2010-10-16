@@ -1,4 +1,6 @@
-<%= @title %>
+# <%= @title %> #
+
+Produced: <%= @date.strftime('%d-%b-%Y %H:%M:%S') %>
 
 Readability
 -----------
@@ -6,11 +8,17 @@ Readability
 Totals
 ------
 
-* Total files: <%= @summaries.length %>
+* Total files analyzed: <%= @summaries.length %>
 
-Files
------
+List of Files
+-------------
 
+<% @summaries.each do |summary| %>
+* <%= summary.filename %>
+<% end %>
+
+File Summaries
+--------------
 <% @summaries.each do |summary| %>
 Summary for <%= summary.filename %>
 
@@ -18,8 +26,8 @@ Readability
 -----------
 
 * Flesch Reading Ease: <%= summary.readability.flesch %>
-* Kincaid: <%= summary.readability.kincaid %>
-* Fog Index: <%= summary.readability.fog %>
+* Flesch-Kincaid Grade Level: <%= summary.readability.kincaid %>
+* Gunning Fog Index: <%= summary.readability.fog %>
 
 Totals
 ------
@@ -35,7 +43,6 @@ Averages
 * Average words per sentence: <%= summary.readability.words_per_sentence %>
 * Average syllables per word: <%= summary.readability.syllables_per_word %>
 <% end %>
+- - -
 
-Produced: <%= @date.strftime('%d-%b-%Y %H:%M:%S') %>
-
-To use this report in your own programs, parse it with any software that supports Markdown.
+To use this report in your own programs, parse it with any software that supports the Markdown format.
