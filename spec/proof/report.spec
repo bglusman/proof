@@ -24,6 +24,18 @@ module Proof
         report.total_paragraphs.should_not be_nil
       end
       
+      it "should give the total number of sentences" do
+        report_builder = Proof::ReportBuilder.new(summaries)
+        report = report_builder.report()
+        report.total_sentences.should_not be_nil
+      end
+      
+      it "should give the total number of words" do
+        report_builder = Proof::ReportBuilder.new(summaries)
+        report = report_builder.report()
+        report.total_words.should_not be_nil
+      end
+      
     end
     
   end

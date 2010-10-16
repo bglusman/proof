@@ -10,6 +10,9 @@ Totals
 
 * Total files analyzed: <%= @summaries.length %>
 * Total paragraphs: <%= total_paragraphs %>
+* Total sentences: <%= total_sentences %>
+* Total words: <%= total_words %>
+* Total characters: <%= total_characters %>
 
 List of Files
 -------------
