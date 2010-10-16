@@ -7,7 +7,7 @@ require 'spec/rake/spectask'
 require 'irb'
 
 CLEAN.include('pkg')
-CLOBBER.include('pkg', 'tmp')
+CLOBBER.include('tmp')
 
 desc "Run all specs"
 Spec::Rake::SpecTask.new('spec') do |t|
