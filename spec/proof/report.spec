@@ -16,6 +16,16 @@ module Proof
       output.should_not be_nil
     end
     
+    context "calculated totals" do
+      
+      it "should give the total number of paragraphs" do
+        report_builder = Proof::ReportBuilder.new(summaries)
+        report = report_builder.report()
+        report.total_paragraphs.should_not be_nil
+      end
+      
+    end
+    
   end
   
 end

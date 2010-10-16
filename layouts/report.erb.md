@@ -9,6 +9,7 @@ Totals
 ------
 
 * Total files analyzed: <%= @summaries.length %>
+* Total paragraphs: <%= total_paragraphs %>
 
 List of Files
 -------------

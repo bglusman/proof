@@ -14,9 +14,16 @@ module Proof
       @summaries = summaries
     end
     
-    # Return the report data formatted with the template
+    # Returns the report data formatted with the template
     def render(template)
       ERB.new(template).result(binding)
+    end
+    
+    # Returns the total number of paragraphs for all of the summaries
+    def total_paragraphs
+      @summaries.inject(0) do |total, summary|
+        total + summary.readability.num_paragraphs
+      end
     end
     
   end
