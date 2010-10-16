@@ -1,8 +1,9 @@
 # -*- encoding: utf-8 -*-
 
+require 'optparse'
+
 module Proof
   module Application
-    require 'optparse'
     extend self
     attr_accessor :config, :output, :sources
         

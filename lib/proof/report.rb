@@ -1,10 +1,11 @@
 # -*- encoding: utf-8 -*-
 
+require 'erb'
+
 module Proof
   # Report of the results of the analysis
   # Each Report encloses one or more Summary objects,
   # and also has it's own aggregate information 
-  require 'erb'
   class Report
     include ERB::Util
     attr_accessor :date, :summaries, :title
