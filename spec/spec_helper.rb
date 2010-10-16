@@ -11,6 +11,10 @@ def get_template(filename)
 end
 
 # FIXME: This should be cleverer
-def mock_summaries()
+def mock_summaries(total)
   summaries = []
+  total.times do |p|
+    summaries << Proof::Content::Analyzer.analyze("small.txt", contents('small.txt'))
+  end
+  summaries
 end

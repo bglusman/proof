@@ -5,7 +5,7 @@ require 'spec_helper'
 module Proof
   
   describe Report do
-    let(:summaries) { mock_summaries }
+    let(:summaries) { mock_summaries(3) }
     
     it "should render itself using a Markdown template" do
       template = get_template('report.erb.md') 
@@ -18,32 +18,64 @@ module Proof
     
     context "calculated totals" do
 
-      it "should give the total number of characters" do
+      it "should give the mean number of characters" do
         report_builder = Proof::ReportBuilder.new(summaries)
         report = report_builder.report()
         total = report.total(:num_characters)
         total.should_not be_nil
       end
       
-      it "should give the total number of paragraphs" do
+      it "should give the mean number of paragraphs" do
         report_builder = Proof::ReportBuilder.new(summaries)
         report = report_builder.report()
         total = report.total(:num_paragraphs)
         total.should_not be_nil
       end
       
-      it "should give the total number of sentences" do
+      it "should give the mean number of sentences" do
         report_builder = Proof::ReportBuilder.new(summaries)
         report = report_builder.report()
         total = report.total(:num_sentences)
         total.should_not be_nil
       end
       
-      it "should give the total number of words" do
+      it "should give the mean number of words" do
         report_builder = Proof::ReportBuilder.new(summaries)
         report = report_builder.report()
         total = report.total(:num_sentences)
         total.should_not be_nil
+      end
+      
+    end
+    
+    context "calculated means" do
+
+      it "should give the mean number of characters" do
+        report_builder = Proof::ReportBuilder.new(summaries)
+        report = report_builder.report()
+        mean = report.mean(:num_characters)
+        mean.should_not be_nil
+      end
+      
+      it "should give the mean number of paragraphs" do
+        report_builder = Proof::ReportBuilder.new(summaries)
+        report = report_builder.report()
+        mean = report.mean(:num_paragraphs)
+        mean.should_not be_nil
+      end
+      
+      it "should give the mean number of sentences" do
+        report_builder = Proof::ReportBuilder.new(summaries)
+        report = report_builder.report()
+        mean = report.mean(:num_sentences)
+        mean.should_not be_nil
+      end
+      
+      it "should give the mean number of words" do
+        report_builder = Proof::ReportBuilder.new(summaries)
+        report = report_builder.report()
+        mean = report.mean(:num_sentences)
+        mean.should_not be_nil
       end
       
     end

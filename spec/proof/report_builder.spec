@@ -5,7 +5,7 @@ require 'spec_helper'
 module Proof
   
   describe ReportBuilder do
-    let(:summaries) { mock_summaries }
+    let(:summaries) { mock_summaries(3) }
     
     it "should return a Report from the provided collection of Summary objects" do 
       report_builder = Proof::ReportBuilder.new(summaries)

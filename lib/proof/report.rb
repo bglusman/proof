@@ -14,6 +14,12 @@ module Proof
       @summaries = summaries
     end
     
+    # For the specified attribute, 
+    # returns the mean average score for all of the summaries
+    def mean(attribute)
+      total(attribute) / @summaries.length
+    end
+    
     # Returns the report data formatted with the template
     def render(template)
       ERB.new(template).result(binding)
