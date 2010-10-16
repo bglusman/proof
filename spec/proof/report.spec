@@ -7,13 +7,16 @@ module Proof
   describe Report do
     let(:summaries) { mock_summaries(3) }
     
-    it "should render itself using a Markdown template" do
-      template = get_template('report.erb.md') 
-      report_builder = Proof::ReportBuilder.new(summaries)
-      report = report_builder.report()
-      output = report.render(template)
-      # FIXME: Use a smarter expectation
-      output.should_not be_nil
+    describe "#render" do
+    
+      it "should render itself using a Markdown template" do
+        template = get_template('report.erb.md') 
+        report_builder = Proof::ReportBuilder.new(summaries)
+        report = report_builder.report()
+        output = report.render(template)
+        output.should_not be_nil
+      end
+    
     end
     
     describe "#report calculated totals" do

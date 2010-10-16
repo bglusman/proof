@@ -7,10 +7,14 @@ module Proof
   
   describe Analyzer do
   
-      it "should generate a Summary from the provided content" do
-        content = contents('small.txt')
-        summary = Proof::Content::Analyzer.analyze('small.txt', content)
-        summary.should be_kind_of(Proof::Content::Summary)
+      describe ".analyze" do
+  
+        it "should generate a Summary from the provided content" do
+          content = contents('small.txt')
+          summary = Proof::Content::Analyzer.analyze('small.txt', content)
+          summary.should be_kind_of(Proof::Content::Summary)
+        end
+
       end
   
     end
