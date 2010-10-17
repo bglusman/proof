@@ -8,7 +8,8 @@ module Proof
     attr_accessor :config, :output, :sources
         
     FORMATS = {
-      :markdown => {:template => 'report.erb.md'}
+      :full => {:template => 'full.erb.md'},
+      :short => {:template => 'short.erb.md'}
     }
     
     # Returns the template for the specified format
@@ -65,7 +66,7 @@ module Proof
         exit(1)
       else
         report = report(@sources)
-        @config[:format] = :markdown if @config[:format] == nil
+        @config[:format] = :short if @config[:format] == nil
         template = get_template(@config[:format])
         @output.puts report.render(template)
         exit
