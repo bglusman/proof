@@ -63,8 +63,8 @@ module Proof
     def run(output=STDOUT, args=ARGV)
       @output = output
       @sources = read_arguments(args)
-      if @sources == nil
-        @output.puts = 'Please specify one or more files.'
+      if @sources.empty?
+        @output.puts 'Proof: Please specify one or more files to analyze.'
         exit(1)
       else
         report = report(@sources)
