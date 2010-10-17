@@ -29,9 +29,9 @@ Produced: <%= @date.strftime('%d-%b-%Y %H:%M:%S') %>
 
 #### Readability ####
 
-* Flesch Reading Ease: <%= summary.readability.flesch.round(2) %>
-* Flesch-Kincaid Grade Level: <%= summary.readability.kincaid.round(2) %>
-* Gunning Fog Index: <%= summary.readability.fog.round(2) %>
+* Flesch Reading Ease: <%= summary.readability.flesch.round(2) %>. This text is <%= @verdict[:flesch] %>.
+* Flesch-Kincaid Grade Level: <%= summary.readability.kincaid.round(2) %>. This text should be understandable by <%= @verdict[:kincaid] %>.
+* Gunning Fog Index: <%= summary.readability.fog.round(2) %>. This text should be understandable by <%= @verdict[:fog] %>.
 
 #### Totals ####
 
