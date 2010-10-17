@@ -27,5 +27,10 @@ module Proof
       @report.title = "Readability Report"
     end
     
+    # Produces a Verdict for the Report
+    def verdict()
+       @report.verdict = {}
+    end
+    
   end
 end

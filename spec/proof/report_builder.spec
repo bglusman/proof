@@ -26,7 +26,12 @@ module Proof
       subject.title()
       subject.report.title.should == "Readability Report"      
     end
-        
+    
+    it "should include a Verdict in the Report" do
+      subject.verdict()
+      subject.report.verdict.should_not be_nil      
+    end
+    
   end
   
 end
