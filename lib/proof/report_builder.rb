@@ -19,6 +19,7 @@ module Proof
     def report()
       title()
       date()
+      verdict()
       @report
     end
     
@@ -30,6 +31,7 @@ module Proof
     # Produces a verdict for the Report
     def verdict()
        @report.verdict = {}
+       @report.verdict[:fog] = Proof::Formula::Fog.explain(@report.mean(:fog))
     end
     
   end
