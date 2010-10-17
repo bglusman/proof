@@ -8,9 +8,9 @@ module Proof
     attr_accessor :config, :output, :sources
         
     FORMATS = {
-      :full => {:template => 'full.erb.md'},
+      :full => {:template => 'full.md.erb'},
       :html => {:template => 'full.html.erb'},
-      :short => {:template => 'short.erb.md'}
+      :short => {:template => 'short.md.erb'}
     }
     
     # Returns the template for the specified format
