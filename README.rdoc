@@ -48,6 +48,13 @@ To check multiple files at the same time, specify the names of each of the files
 
 proof part1.txt part2.txt part3.txt
 
+Proof currently supports the following report formats:
+
+* *short* - the default, as shown above
+* *full* - the short report, plus an analysis per file
+* *html* - a HTML version of the full report
+* *condensed* - a format specifically for parsing
+
 == Development
 
 The source code is published on GitHub:
