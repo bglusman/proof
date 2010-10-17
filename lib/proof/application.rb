@@ -9,6 +9,7 @@ module Proof
         
     FORMATS = {
       :full => {:template => 'full.erb.md'},
+      :html => {:template => 'full.html.erb'},
       :short => {:template => 'short.erb.md'}
     }
     
