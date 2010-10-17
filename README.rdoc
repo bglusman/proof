@@ -12,7 +12,7 @@ Proof is written in Ruby.
 
 == Usage
 
-To run the command-line utility, type proof, followed by the name of the file to analyze:
+To run the command-line utility, type *proof*, followed by the name of the file to analyze:
 
 proof myworkofgenius.txt
 
