@@ -8,6 +8,7 @@ module Proof
     attr_accessor :config, :output, :sources
         
     FORMATS = {
+      :condensed => {:template => 'condensed.txt.erb'},
       :full => {:template => 'full.md.erb'},
       :html => {:template => 'full.html.erb'},
       :short => {:template => 'short.md.erb'}
