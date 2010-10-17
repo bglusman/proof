@@ -19,22 +19,22 @@ proof myworkofgenius.txt
 You then get a short readability report:
 
     # Readability Report #
- 
-    Produced: 17-Oct-2010 15:23:36 
- 
-    ## Overall Readability ## 
+
+    Produced: 17-Oct-2010 16:41:55.
+
+    ## Overall Readability ##
 
     * Flesch Reading Ease: 23.53. This text is very hard to read.
     * Flesch-Kincaid Grade Level: 11.81. This text should be understandable by an average high school junior.
-    * Gunning Fog Index: 15.03. This text should be understandable by an average college junior student. 
+    * Gunning Fog Index: 15.03. This text should be understandable by an average college junior student.
 
-    ### Totals ### 
+    ### Totals ###
 
-    * Total files analyzed: 1 
-    * Total paragraphs: 5
-    * Total sentences: 71
-    * Total words: 523 
-    * Total characters: 3481
+    * Total files analyzed: 1.
+    * Total paragraphs: 5.
+    * Total sentences: 71.
+    * Total words: 523.
+    * Total characters: 3481.
 
 Specify options flags before the name of the file:
 
