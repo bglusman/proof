@@ -22,7 +22,7 @@ module Proof
     
     # Returns the report data formatted with the template
     def render(template)
-      ERB.new(template).result(binding)
+      ERB.new(template, 0, '>').result(binding)
     end
     
     # For the specified attribute, 
