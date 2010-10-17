@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ['Stuart Ellis']
   s.email       = ['stuart@stuartellis.eu']
   s.homepage    = "http://github.com/stuartellis/proof"
-  s.summary     = "A simple readability analyzer"
-  s.description = "A command-line utility for readability analysis"
+  s.summary     = "Readability analysis reporting"
+  s.description = "Proof generates readability analysis reports"
 
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project         = "proof"

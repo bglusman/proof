@@ -1,6 +1,10 @@
 = proof
 
-A readability analysis utility.
+Proof enables you to generate readability analysis reports.
+
+It currently provides a command-line utility, also called *proof*.
+
+Proof is written in Ruby.
 
 == Install
 
@@ -8,7 +12,7 @@ A readability analysis utility.
 
 == Usage
 
-To run this utility, type proof, followed by the name of the file to analyze:
+To run the command-line utility, type proof, followed by the name of the file to analyze:
 
 proof myworkofgenius.txt
 
