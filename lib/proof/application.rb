@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
 
+require 'find'
 require 'optparse'
 
 module Proof
@@ -17,6 +18,21 @@ module Proof
     # Returns the template for the specified format
     def get_template(format)
       read_file(File.join('layouts', FORMATS[format][:template]))
+    end
+        
+    # Returns a list of all of the files from the given sources
+    def list_files(sources)
+      files = []
+      sources.each do |source|
+        Find.find(source) do |item|
+          if File.basename(item)[0] == ?.
+            Find.prune    
+          else
+            files << item if File.file?(item)
+          end
+        end
+      end
+      files
     end
         
     # Parse the provided arguments
@@ -67,7 +83,8 @@ module Proof
         @output.puts 'Proof: Please specify one or more files to analyze.'
         exit(1)
       else
-        report = report(sources)
+        files = list_files(sources)
+        report = report(files)
         @config[:format] = :short if @config[:format] == nil
         template = get_template(@config[:format])
         @output.puts report.render(template)

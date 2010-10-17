@@ -11,6 +11,19 @@ module Proof
       Proof::Application.output = output
     end
     
+    it "should build a list of files for a single directory" do
+      sources = [File.join('spec', 'files')]
+      files = Proof::Application.list_files(sources)
+      files.length.should == 2
+    end
+    
+    it "should build a list of files from two sources" do
+      sources = [File.join('spec', 'files', 'gutenburg'), 
+        File.join('spec', 'files', 'small.txt')]
+      files = Proof::Application.list_files(sources)
+      files.length.should == 2
+    end
+    
     it "should get a template for the short report format" do
       template = Proof::Application.get_template(:short)
       template.should_not be_nil
