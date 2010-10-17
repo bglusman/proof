@@ -6,38 +6,36 @@ module Proof
     module Fog
       # Return a text explanation of the given Gunning Fog Index value
       def self.explain(value)
-        case value
-          when value > 18
+        case
+          when value > 18.0
             "someone with post-graduate education"
-          when 17
+          when value >= 17.0
             "an average college graduate"
-          when 16
+          when value >= 16.0
             "an average college senior student"
-          when 16
-            "an average college senior student"
-          when 15
+          when value >= 15.0
             "an average college junior student"
-          when 14
+          when value >= 14.0
             "an average college sophomore student"
-          when 13
+          when value >= 13.0
             "an average college freshman student"
-          when 12
+          when value >= 12.0
             "an average high school senior"
-          when 11
+          when value >= 11.0
               "an average high school junior"
-          when 10
+          when value >= 10.0
             "an average high school sophomore"
-          when 9
+          when value >= 9.0
             "an average high school freshman"
-          when 8
+          when value >= 8.0
             "an average 8th grade student"
-          when 7
+          when value >= 7.0
             "an average 7th grade student"
-          when 6
+          when value >= 6.0
             "an average 6th grade student"
-          when 5
+          when value >= 5.0
             "an average 5th student"
-          when value < 4
+          when value < 4.0
             "anyone below 5th grade"
           end
       end
