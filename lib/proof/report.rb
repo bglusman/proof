@@ -4,13 +4,14 @@ require 'erb'
 
 module Proof
   # Report of the results of the analysis
-  # Each Report encloses one or more Summary objects,
+  # Each Report encloses a Verdict and one or more Summary objects,
   # and also has it's own aggregate information 
   class Report
-    attr_accessor :date, :summaries, :title
+    attr_accessor :date, :summaries, :title, :verdict
     
-    def initialize(summaries)
+    def initialize(summaries, verdict=nil)
       @summaries = summaries
+      @verdict = verdict
     end
     
     # For the specified attribute, 
