@@ -16,13 +16,37 @@ To run the command-line utility, type proof, followed by the name of the file to
 
 proof myworkofgenius.txt
 
-To check multiple files at the same time, specify the names of each of the files to analyze:
+You then get a short readability report:
 
-proof part1.txt part2.txt part3.txt
+> # Readability Report #
+> 
+> Produced: 17-Oct-2010 15:23:36
+> 
+> ## Overall Readability ##
+> 
+> * Flesch Reading Ease: 23.53. This text is very hard to read.
+> * Flesch-Kincaid Grade Level: 11.81. This text should be understandable by an average high school junior.
+> * Gunning Fog Index: 15.03. This text should be understandable by an average college junior student.
+> 
+> ### Totals ###
+> 
+> * Total files analyzed: 1
+> * Total paragraphs: 5
+> * Total sentences: 71
+> * Total words: 523
+> * Total characters: 3481
 
 Specify options flags before the name of the file:
 
 proof [options] myworkofgenius.txt
+
+For example, to get a full report, specify *--format=full*:
+
+proof --format=full myworkofgenius.txt
+
+To check multiple files at the same time, specify the names of each of the files to analyze:
+
+proof part1.txt part2.txt part3.txt
 
 == Development
 
