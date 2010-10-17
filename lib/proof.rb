@@ -11,3 +11,4 @@ require File.join(File.dirname(File.expand_path(__FILE__)), 'proof', 'content', 
 
 # Requires items from the Proof::Formula module 
 require File.join(File.dirname(File.expand_path(__FILE__)), 'proof', 'formula', 'fog')
+require File.join(File.dirname(File.expand_path(__FILE__)), 'proof', 'formula', 'flesch')

@@ -31,6 +31,11 @@ module Proof
       subject.verdict()
       subject.report.verdict.should_not be_nil      
     end
+
+    it "should include a verdict with a Flesch Reading Ease" do
+      subject.verdict()
+      subject.report.verdict.should include(:flesch)
+    end
     
     it "should include a verdict with a Fog Index" do
       subject.verdict()

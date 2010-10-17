@@ -4,7 +4,7 @@ Produced: <%= @date.strftime('%d-%b-%Y %H:%M:%S') %>
 
 ## Overall Readability ##
 
-* Flesch Reading Ease: <%= mean(:flesch).round(2) %>
+* Flesch Reading Ease: <%= mean(:flesch).round(2) %>. This text is <%= @verdict[:flesch] %>.
 * Flesch-Kincaid Grade Level: <%= mean(:kincaid).round(2) %>
 * Gunning Fog Index: <%= mean(:fog).round(2) %>. This text should be understandable by <%= @verdict[:fog] %>.
 

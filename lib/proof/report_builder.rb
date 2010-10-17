@@ -31,6 +31,7 @@ module Proof
     # Produces a verdict for the Report
     def verdict()
        @report.verdict = {}
+       @report.verdict[:flesch] = Proof::Formula::Flesch.explain(@report.mean(:flesch))
        @report.verdict[:fog] = Proof::Formula::Fog.explain(@report.mean(:fog))
     end
     
