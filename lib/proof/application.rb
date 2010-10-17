@@ -18,7 +18,7 @@ module Proof
     def get_template(format)
       read_file(File.join('layouts', FORMATS[format][:template]))
     end
-    
+        
     # Parse the provided arguments
     def read_arguments(args)
       @config = {} if @config == nil
@@ -48,12 +48,12 @@ module Proof
       File.read(filename)
     end
     
-    # Returns a Report from the sources 
-    def report(sources)
+    # Returns a Report for the specified files 
+    def report(filenames)
       summaries = []
-      sources.each do |source|
-        content = read_file(source)
-        summaries << Proof::Content::Analyzer.analyze(source, content)
+      filenames.each do |filename|
+        content = read_file(filename)
+        summaries << Proof::Content::Analyzer.analyze(filename, content)
       end
       report_builder = Proof::ReportBuilder.new(summaries)
       report_builder.report()
