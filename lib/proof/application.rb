@@ -5,7 +5,7 @@ require 'optparse'
 module Proof
   module Application
     extend self
-    attr_accessor :config, :output, :sources
+    attr_accessor :config, :output
         
     FORMATS = {
       :condensed => {:template => 'condensed.txt.erb'},
@@ -62,12 +62,12 @@ module Proof
     # Executes the process
     def run(output=STDOUT, args=ARGV)
       @output = output
-      @sources = read_arguments(args)
-      if @sources.empty?
+      sources = read_arguments(args)
+      if sources.empty?
         @output.puts 'Proof: Please specify one or more files to analyze.'
         exit(1)
       else
-        report = report(@sources)
+        report = report(sources)
         @config[:format] = :short if @config[:format] == nil
         template = get_template(@config[:format])
         @output.puts report.render(template)
