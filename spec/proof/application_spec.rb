@@ -11,7 +11,7 @@ module Proof
       Proof::Application.output = output
     end
     
-    it "should get a template for the Markdown format" do
+    it "should get a template for the short report format" do
       template = Proof::Application.get_template(:short)
       template.should_not be_nil
     end
@@ -33,15 +33,15 @@ module Proof
       end
     
       it "should set output format from short-form argument" do
-        args = ['-f', 'markdown', 'example.txt']
+        args = ['-f', 'full', 'example.txt']
         Proof::Application.read_arguments(args)
-        Proof::Application.config[:format].should == :markdown
+        Proof::Application.config[:format].should == :full
       end
     
       it "should set output format from long-form argument" do
-        args = ['--format=markdown', 'example.txt']
+        args = ['--format=full', 'example.txt']
         Proof::Application.read_arguments(args)
-        Proof::Application.config[:format].should == :markdown
+        Proof::Application.config[:format].should == :full
       end
     
     end
