@@ -32,6 +32,11 @@ module Proof
       subject.report.verdict.should_not be_nil      
     end
 
+    it "should include a verdict with a Flesch–Kincaid Grade Level" do
+      subject.verdict()
+      subject.report.verdict.should include(:kincaid)
+    end
+
     it "should include a verdict with a Flesch Reading Ease" do
       subject.verdict()
       subject.report.verdict.should include(:flesch)
