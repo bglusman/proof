@@ -6,23 +6,27 @@ module Proof
   
   describe ReportBuilder do
     let(:summaries) { mock_summaries(3) }
+    subject { ReportBuilder.new(summaries) }
     
-    it "should return a Report from the provided collection of Summary objects" do 
-      report_builder = Proof::ReportBuilder.new(summaries)
-      report = report_builder.report()
-      report.should be_kind_of(Proof::Report)
+    it "should return a Report" do 
+      subject.report()
+      subject.report.should be_kind_of(Proof::Report)
     end
     
     it "should set the date of the Report" do
-      report = Proof::ReportBuilder.new(summaries).report()
-      report.date.should be_kind_of(Time)
+      subject.date()
+      subject.report.date.should be_kind_of(Time)
+    end
+
+    it "should include Summaries in the Report" do
+      subject.should have(3).summaries
     end
     
     it "should set the title of the Report" do
-      report = Proof::ReportBuilder.new(summaries).report()
-      report.title.should == "Readability Report"      
+      subject.title()
+      subject.report.title.should == "Readability Report"      
     end
-    
+        
   end
   
 end
