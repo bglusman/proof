@@ -17,7 +17,7 @@ end
 
 desc "Run all specs"
 Spec::Rake::SpecTask.new('spec') do |t|
-  t.spec_files = FileList['spec/**/*.spec']
+  t.spec_files = FileList['spec/**/*.rb']
 end
 
 desc "Start a console"
