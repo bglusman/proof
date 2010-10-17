@@ -48,6 +48,8 @@ To check multiple files at the same time, specify the names of each of the files
 
 proof part1.txt part2.txt part3.txt
 
+== Output Formats
+
 Proof currently supports the following report formats:
 
 * *short* - the default, as shown above
