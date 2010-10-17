@@ -4,8 +4,7 @@ require 'erb'
 
 module Proof
   # Report of the results of the analysis
-  # Each Report encloses a Verdict and one or more Summary objects,
-  # and also has it's own aggregate information 
+  # Each Report encloses a verdict and one or more Summary objects
   class Report
     attr_accessor :date, :summaries, :title, :verdict
     
