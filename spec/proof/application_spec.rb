@@ -12,7 +12,7 @@ module Proof
     end
     
     it "should get a template for the Markdown format" do
-      template = Proof::Application.get_template(:markdown)
+      template = Proof::Application.get_template(:short)
       template.should_not be_nil
     end
     
