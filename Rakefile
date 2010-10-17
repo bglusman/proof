@@ -15,9 +15,9 @@ Rake::RDocTask.new do |rd|
   rd.rdoc_files.include("README.rdoc", "lib/**/*.rb")
 end
 
-desc "Run all specs"
-Spec::Rake::SpecTask.new('spec') do |t|
-  t.spec_files = FileList['spec/**/*.rb']
+desc "Run specs"
+Spec::Rake::SpecTask.new do |t|
+  t.spec_opts = ['--color', '--format nested']
 end
 
 desc "Start a console"
