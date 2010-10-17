@@ -44,9 +44,11 @@ For example, to get a full report, use --format and specify *full*:
 
 proof --format=full myworkofgenius.txt
 
-To check multiple files at the same time, specify the names of each of the files to analyze:
+To check multiple files at the same time, specify the names of the files or directories to analyze:
 
 proof part1.txt part2.txt part3.txt
+
+proof masterpieces1/ masterpieces2/
 
 == Output Formats
 
