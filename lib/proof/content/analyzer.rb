@@ -7,8 +7,8 @@ module Proof
     #  Content analysis
     class Analyzer < Lingua::EN::Readability
       # Returns a summary of the text
-      def self.summarize(name, content, attributes)
-        analyzer = self.new(content)
+      def self.summarize(name, text, attributes)
+        analyzer = self.new(text)
         summary = {}
         summary[:name] = name
         summary[:statistics] = analyzer.statistics(attributes)
