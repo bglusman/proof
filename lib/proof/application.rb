@@ -8,16 +8,20 @@ module Proof
     extend self
     attr_accessor :config, :output
       
-    READABILITY_ATTRIBUTES = [:flesch, :fog, :kincaid, 
-      :num_paragraphs, :num_sentences, :num_words, :num_characters, 
-      :words_per_sentence, :syllables_per_word]
-        
-    FORMATS = {
-      :condensed => {:template => 'condensed.txt.erb'},
-      :full => {:template => 'full.md.erb'},
-      :html => {:template => 'full.html.erb'},
-      :short => {:template => 'short.md.erb'}
-    }
+      REPORT_TITLE = 'Readability Report'
+      
+      REPORT_TOTALS = [:num_paragraphs, :num_sentences, :num_words, :num_characters]
+      
+      SUMMARY_ATTRIBUTES = [:flesch, :fog, :kincaid, 
+        :num_paragraphs, :num_sentences, :num_words, :num_characters, 
+        :words_per_sentence, :syllables_per_word]
+             
+      FORMATS = {
+        :condensed => {:template => 'condensed.txt.erb'},
+        :full => {:template => 'full.md.erb'},
+        :html => {:template => 'full.html.erb'},
+        :short => {:template => 'short.md.erb'}
+      }
     
     # Returns the template for the specified format
     def get_template(format)
@@ -73,9 +77,9 @@ module Proof
       summaries = []
       filenames.each do |filename|
         content = read_file(filename)
-        summaries << Proof::Content::Analyzer.summarize(filename, content, READABILITY_ATTRIBUTES)
+        summaries << Proof::Content::Analyzer.summarize(filename, content, SUMMARY_ATTRIBUTES)
       end
-      report_builder = Proof::ReportBuilder.new(summaries)
+      report_builder = Proof::ReportBuilder.new(REPORT_TITLE, summaries, REPORT_TOTALS)
       report_builder.report()
     end
     

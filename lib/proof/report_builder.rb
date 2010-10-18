@@ -4,10 +4,12 @@ module Proof
   # Builder for Report objects
   # Constructs a Report from one or more summaries
   class ReportBuilder
-    attr_accessor :report, :summaries
-    def initialize(summaries)
+    attr_accessor :report, :summaries, :total_attributes
+    def initialize(name, summaries, total_attributes)
+      @total_attributes = total_attributes
       @summaries = summaries
       @report = Proof::Report.new(@summaries)
+      title(name)
     end
     
     # Sets the date of the Report
@@ -23,16 +25,15 @@ module Proof
     
     # Returns the completed Report
     def report()
-      title()
       date()
-      totals()
+      totals(@total_attributes)
       verdict()
       @report
     end
     
     # Sets the title of the Report
-    def title()
-      @report.title = "Readability Report"
+    def title(name)
+      @report.title = name
     end
     
     # For the specified attribute, 
@@ -44,8 +45,7 @@ module Proof
     end
     
     # Produces a set of totals for the Report
-    def totals()
-      attributes = [:num_paragraphs, :num_sentences, :num_words, :num_characters]
+    def totals(attributes)
       @report.totals = {}
       attributes.each do |a|
         @report.totals[a] = total(a)  

@@ -11,7 +11,7 @@ module Proof
     
       it "should render itself using a Markdown template" do
         template = get_template('short.md.erb') 
-        report_builder = Proof::ReportBuilder.new(summaries)
+        report_builder = Proof::ReportBuilder.new('Readability Report', summaries, REPORT_TOTALS)
         report = report_builder.report()
         output = report.render(template)
         output.should_not be_nil

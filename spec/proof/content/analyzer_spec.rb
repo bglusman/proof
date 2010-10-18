@@ -11,7 +11,7 @@ module Proof
   
         it "should generate a summary from the provided text" do
           text = contents('small.txt')
-          summary = Proof::Content::Analyzer.summarize('small.txt', text, READABILITY_ATTRIBUTES)
+          summary = Proof::Content::Analyzer.summarize('small.txt', text, SUMMARY_ATTRIBUTES)
           summary.should be_kind_of(Hash)
         end
 
@@ -22,7 +22,7 @@ module Proof
         it "should generate a Hash of statistics from the provided text" do
           text = contents('small.txt')
           analyzer = Proof::Content::Analyzer.new(text)
-          summary = analyzer.statistics(READABILITY_ATTRIBUTES)
+          summary = analyzer.statistics(SUMMARY_ATTRIBUTES)
           summary.should be_kind_of(Hash)
         end
 
