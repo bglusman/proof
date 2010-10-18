@@ -18,7 +18,7 @@ end
 def mock_summaries(total)
   summaries = []
   total.times do |p|
-    summaries << Proof::Content::Analyzer.analyze("small.txt",
+    summaries << Proof::Content::Analyzer.summarize("small.txt",
     contents('small.txt'), READABILITY_ATTRIBUTES)
   end
   summaries

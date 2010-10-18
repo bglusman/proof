@@ -73,7 +73,7 @@ module Proof
       summaries = []
       filenames.each do |filename|
         content = read_file(filename)
-        summaries << Proof::Content::Analyzer.analyze(filename, content, READABILITY_ATTRIBUTES)
+        summaries << Proof::Content::Analyzer.summarize(filename, content, READABILITY_ATTRIBUTES)
       end
       report_builder = Proof::ReportBuilder.new(summaries)
       report_builder.report()

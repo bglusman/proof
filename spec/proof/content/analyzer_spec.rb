@@ -7,11 +7,11 @@ module Proof
   
   describe Analyzer do
   
-      describe ".analyze" do
+      describe ".summarize" do
   
-        it "should generate a Summary from the provided content" do
+        it "should generate a summary from the provided content" do
           content = contents('small.txt')
-          summary = Proof::Content::Analyzer.analyze('small.txt', content, READABILITY_ATTRIBUTES)
+          summary = Proof::Content::Analyzer.summarize('small.txt', content, READABILITY_ATTRIBUTES)
           summary.should be_kind_of(Hash)
         end
 
