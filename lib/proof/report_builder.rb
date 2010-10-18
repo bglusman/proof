@@ -63,7 +63,7 @@ module Proof
       @report.verdict[:kincaid][:explanation] = Proof::Formula::Kincaid.explain(@report.verdict[:kincaid][:score])
       @report.verdict[:fog] = {}
       @report.verdict[:fog][:score] = mean(:fog)
-      @report.verdict[:fog][:explanation] = Proof::Formula::Kincaid.explain(@report.verdict[:fog][:score])      
+      @report.verdict[:fog][:explanation] = Proof::Formula::Fog.explain(@report.verdict[:fog][:score])      
     end
     
   end
