@@ -4,17 +4,17 @@ Produced: <%= @date.strftime('%d-%b-%Y %H:%M:%S') %>.
 
 ## Overall Readability ##
 
-* Flesch Reading Ease: <%= mean(:flesch).round(2) %>. This text is <%= @verdict[:flesch] %>.
-* Flesch-Kincaid Grade Level: <%= mean(:kincaid).round(2) %>. This text should be understandable by <%= @verdict[:kincaid] %>.
-* Gunning Fog Index: <%= mean(:fog).round(2) %>. This text should be understandable by <%= @verdict[:fog] %>.
+* Flesch Reading Ease: <%= @verdict[:flesch][:score].round(2) %>. This text is <%= @verdict[:flesch][:explanation] %>.
+* Flesch-Kincaid Grade Level: <%= verdict[:kincaid][:score].round(2) %>. This text should be understandable by <%= @verdict[:kincaid][:explanation] %>.
+* Gunning Fog Index: <%= @verdict[:fog][:score].round(2) %>. This text should be understandable by <%= @verdict[:fog][:explanation] %>.
 
 ### Totals ###
 
 * Total files analyzed: <%= @summaries.length %>.
-* Total paragraphs: <%= total(:num_paragraphs) %>.
-* Total sentences: <%= total(:num_sentences) %>.
-* Total words: <%= total(:num_words) %>.
-* Total characters: <%= total(:num_characters) %>.
+* Total paragraphs: <%= @totals[:num_paragraphs] %>.
+* Total sentences: <%= @totals[:num_sentences] %>.
+* Total words: <%= @totals[:num_words] %>.
+* Total characters: <%= @totals[:num_characters] %>.
 
 - - -
 

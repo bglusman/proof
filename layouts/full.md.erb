@@ -4,9 +4,9 @@ Produced: <%= @date.strftime('%d-%b-%Y %H:%M:%S') %>.
 
 ## Overall Readability ##
 
-* Flesch Reading Ease: <%= mean(:flesch).round(2) %>. This text is <%= @verdict[:flesch] %>.
-* Flesch-Kincaid Grade Level: <%= mean(:kincaid).round(2) %>. This text should be understandable by <%= @verdict[:kincaid] %>.
-* Gunning Fog Index: <%= mean(:fog).round(2) %>. This text should be understandable by <%= @verdict[:fog] %>.
+* Flesch Reading Ease: <%= @verdict[:flesch][:score].round(2) %>. This text is <%= @verdict[:flesch][:explanation] %>.
+* Flesch-Kincaid Grade Level: <%= verdict[:kincaid][:score].round(2) %>. This text should be understandable by <%= @verdict[:kincaid][:explanation] %>.
+* Gunning Fog Index: <%= @verdict[:fog][:score].round(2) %>. This text should be understandable by <%= @verdict[:fog][:explanation] %>.
 
 ### Totals ###
 
@@ -30,9 +30,9 @@ Produced: <%= @date.strftime('%d-%b-%Y %H:%M:%S') %>.
 
 #### Readability ####
 
-* Flesch Reading Ease: <%= summary[:statistics][:flesch].round(2) %>. This text is <%= @verdict[:flesch] %>.
-* Flesch-Kincaid Grade Level: <%= summary[:statistics][:kincaid].round(2) %>. This text should be understandable by <%= @verdict[:kincaid] %>.
-* Gunning Fog Index: <%= summary[:statistics][:fog].round(2) %>. This text should be understandable by <%= @verdict[:fog] %>.
+* Flesch Reading Ease: <%= summary[:statistics][:flesch].round(2) %>.
+* Flesch-Kincaid Grade Level: <%= summary[:statistics][:kincaid].round(2) %>.
+* Gunning Fog Index: <%= summary[:statistics][:fog].round(2) %>.
 
 #### Totals ####
 

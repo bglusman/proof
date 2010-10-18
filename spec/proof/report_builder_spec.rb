@@ -27,7 +27,7 @@ module Proof
       subject.report.title.should == "Readability Report"      
     end
         
-    describe "#total values" do
+    describe "#total for value" do
 
       it "should give the total number of characters" do
         report_builder = Proof::ReportBuilder.new(summaries)
@@ -37,7 +37,7 @@ module Proof
             
     end
     
-    describe "#mean values" do
+    describe "#mean for value" do
 
       it "should give the mean number of characters" do
         report_builder = Proof::ReportBuilder.new(summaries)
@@ -45,6 +45,15 @@ module Proof
         mean.should == 523
       end
             
+    end
+
+    describe "#totals" do
+    
+      it "should include a set of totals in the Report" do
+        subject.totals()
+        subject.report.totals.should_not be_nil      
+      end
+      
     end
         
     describe "#verdict" do
