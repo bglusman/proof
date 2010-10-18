@@ -52,7 +52,7 @@ module Proof
         opts.separator "Options:"
         opts.separator ""
         opts.on( '-f', '--format FORMAT', 
-          'Specifies the format of the output' ) do |f|
+          'Specifies the format of the report' ) do |f|
           @config[:format] = f.to_sym
         end
         opts.on( '-t', '--title TITLE', 
