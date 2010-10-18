@@ -2,7 +2,7 @@
 
 module Proof
   # Builder for Report objects
-  # Constructs a Report from one or more Summaries
+  # Constructs a Report from one or more summaries
   class ReportBuilder
     attr_accessor :report, :summaries
     def initialize(summaries)
