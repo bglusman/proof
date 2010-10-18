@@ -17,6 +17,17 @@ module Proof
 
       end
   
+      describe "#summary" do
+  
+        it "should generate a summary from the provided content" do
+          content = contents('small.txt')
+          analyzer = Proof::Content::Analyzer.new(content)
+          summary = analyzer.summary(READABILITY_ATTRIBUTES)
+          summary.should be_kind_of(Hash)
+        end
+
+      end
+  
     end
   
   end
