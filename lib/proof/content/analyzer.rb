@@ -8,7 +8,7 @@ module Proof
     class Analyzer < Lingua::EN::Readability
       # Returns a summary of the text
       def self.summarize(filename, content, attributes)
-        analyzer = Proof::Content::Analyzer.new(content)
+        analyzer = self.new(content)
         summary = {}
         summary[:filename] = filename
         summary[:statistics] = analyzer.summary(attributes)
