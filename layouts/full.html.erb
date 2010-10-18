@@ -46,14 +46,14 @@
     <ul>
       <% @summaries.each do |summary| %>
       <li>
-        <%= summary[:filename] %>
+        <%= summary[:name] %>
       </li><% end %>
     </ul>
     <h2>
       File Summaries
     </h2><% @summaries.each do |summary| %>
     <h3>
-      Summary for <%= summary[:filename] %>
+      Summary for <%= summary[:name] %>
     </h3>
     <h4>
       Readability

@@ -19,14 +19,14 @@ Produced: <%= @date.strftime('%d-%b-%Y %H:%M:%S') %>.
 ### List of Files ###
 
 <% @summaries.each do |summary| %>
-* <%= summary[:filename] %>
+* <%= summary[:name] %>
 
 <% end %>
 
 ## File Summaries ##
 <% @summaries.each do |summary| %>
 
-### Summary for <%= summary[:filename] %> ###
+### Summary for <%= summary[:name] %> ###
 
 #### Readability ####
 

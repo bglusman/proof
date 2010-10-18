@@ -1,4 +1,4 @@
 Overall: Total Files: <%= @summaries.length %>, Flesch Reading Ease: <%= mean(:flesch).round(2) %>, Flesch-Kincaid Grade Level: <%= mean(:kincaid).round(2) %>, Gunning Fog Index: <%= mean(:fog).round(2) %>, Para: <%= total(:num_paragraphs) %>, Sent: <%= total(:num_sentences) %>, Words: <%= total(:num_words) %>, Chars: <%= total(:num_characters) %>;
 <% @summaries.each do |summary| %>
-File Name: <%= summary.filename %>, Flesch Reading Ease: <%= summary[:statistics][:flesch].round(2) %>, Flesch-Kincaid Grade Level: <%= summary[:statistics][:kincaid].round(2) %>, Gunning Fog Index: <%= summary[:statistics][:fog].round(2) %>, Para: <%= total(:num_paragraphs) %>, Sent: <%= total(:num_sentences) %>, Words: <%= total(:num_words) %>, Chars: <%= total(:num_characters) %>;
+File Name: <%= summary.name %>, Flesch Reading Ease: <%= summary[:statistics][:flesch].round(2) %>, Flesch-Kincaid Grade Level: <%= summary[:statistics][:kincaid].round(2) %>, Gunning Fog Index: <%= summary[:statistics][:fog].round(2) %>, Para: <%= total(:num_paragraphs) %>, Sent: <%= total(:num_sentences) %>, Words: <%= total(:num_words) %>, Chars: <%= total(:num_characters) %>;
 <% end %>
