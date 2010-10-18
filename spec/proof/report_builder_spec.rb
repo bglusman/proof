@@ -32,55 +32,19 @@ module Proof
       it "should give the total number of characters" do
         report_builder = Proof::ReportBuilder.new(summaries)
         total = report_builder.total(:num_characters)
-        total.should_not be_nil
+        total.should == 10443
       end
-      
-      it "should give the total number of paragraphs" do
-        report_builder = Proof::ReportBuilder.new(summaries)
-        total = report_builder.total(:num_paragraphs)
-        total.should_not be_nil
-      end
-      
-      it "should give the total number of sentences" do
-        report_builder = Proof::ReportBuilder.new(summaries)
-        total = report_builder.total(:num_sentences)
-        total.should_not be_nil
-      end
-      
-      it "should give the total number of words" do
-        report_builder = Proof::ReportBuilder.new(summaries)
-        total = report_builder.total(:num_words)
-        total.should_not be_nil
-      end
-      
+            
     end
     
     describe "#mean values" do
 
       it "should give the mean number of characters" do
         report_builder = Proof::ReportBuilder.new(summaries)
-        mean = report_builder.mean(:num_characters)
-        mean.should_not be_nil
-      end
-      
-      it "should give the mean number of paragraphs" do
-        report_builder = Proof::ReportBuilder.new(summaries)
-        mean = report_builder.mean(:num_paragraphs)
-        mean.should_not be_nil
-      end
-      
-      it "should give the mean number of sentences" do
-        report_builder = Proof::ReportBuilder.new(summaries)
-        mean = report_builder.mean(:num_sentences)
-        mean.should_not be_nil
-      end
-      
-      it "should give the mean number of words" do
-        report_builder = Proof::ReportBuilder.new(summaries)
         mean = report_builder.mean(:num_words)
-        mean.should_not be_nil
+        mean.should == 523
       end
-      
+            
     end
         
     describe "#verdict" do
