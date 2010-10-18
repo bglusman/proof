@@ -27,24 +27,28 @@ module Proof
       subject.report.title.should == "Readability Report"      
     end
     
-    it "should include a verdict in the Report" do
-      subject.verdict()
-      subject.report.verdict.should_not be_nil      
-    end
-
-    it "should include a verdict with a Flesch–Kincaid Grade Level" do
-      subject.verdict()
-      subject.report.verdict.should include(:kincaid)
-    end
-
-    it "should include a verdict with a Flesch Reading Ease" do
-      subject.verdict()
-      subject.report.verdict.should include(:flesch)
-    end
+    describe "#verdict" do
     
-    it "should include a verdict with a Fog Index" do
-      subject.verdict()
-      subject.report.verdict.should include(:fog)
+      it "should include a verdict in the Report" do
+        subject.verdict()
+        subject.report.verdict.should_not be_nil      
+      end
+
+      it "should include a verdict with a Flesch–Kincaid Grade Level" do
+        subject.verdict()
+        subject.report.verdict.should include(:kincaid)
+      end
+
+      it "should include a verdict with a Flesch Reading Ease" do
+        subject.verdict()
+        subject.report.verdict.should include(:flesch)
+      end
+    
+      it "should include a verdict with a Fog Index" do
+        subject.verdict()
+        subject.report.verdict.should include(:fog)
+      end
+      
     end
     
   end
