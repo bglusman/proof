@@ -9,8 +9,9 @@ module Proof
       # Returns a Summary of the text
       def self.analyze(filename, content, attributes)
         analyzer = Proof::Content::Analyzer.new(content)
-        summary = Proof::Content::Summary.new(filename)
-        summary.readability = analyzer.summarize(attributes)
+        summary = {}
+        summary[:filename] = filename
+        summary[:statistics] = analyzer.summarize(attributes)
         summary
       end
       

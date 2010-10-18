@@ -28,7 +28,7 @@ module Proof
     # returns the total score for all of the summaries
     def total(attribute)
       @summaries.inject(0) do |t, summary|
-        t + summary.readability[attribute]
+        t + summary[:statistics][attribute]
       end
     end
         

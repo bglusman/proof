@@ -46,46 +46,46 @@
     <ul>
       <% @summaries.each do |summary| %>
       <li>
-        <%= summary.filename %>
+        <%= summary[:filename] %>
       </li><% end %>
     </ul>
     <h2>
       File Summaries
     </h2><% @summaries.each do |summary| %>
     <h3>
-      Summary for <%= summary.filename %>
+      Summary for <%= summary[:filename] %>
     </h3>
     <h4>
       Readability
     </h4>
     <ul>
-      <li>Flesch Reading Ease: <%= summary.readability.flesch.round(2) %>. This text is <%= @verdict[:flesch] %>.
+      <li>Flesch Reading Ease: <%= summary[:statistics][:flesch].round(2) %>. This text is <%= @verdict[:flesch] %>.
       </li>
-      <li>Flesch-Kincaid Grade Level: <%= summary.readability.kincaid.round(2) %>. This text should be understandable by <%= @verdict[:kincaid] %>.
+      <li>Flesch-Kincaid Grade Level: <%= summary[:statistics][:kincaid].round(2) %>. This text should be understandable by <%= @verdict[:kincaid] %>.
       </li>
-      <li>Gunning Fog Index: <%= summary.readability.fog.round(2) %>. This text should be understandable by <%= @verdict[:fog] %>.
+      <li>Gunning Fog Index: <%= summary[:statistics][:fog].round(2) %>. This text should be understandable by <%= @verdict[:fog] %>.
       </li>
     </ul>
     <h4>
       Totals
     </h4>
     <ul>
-      <li>Total paragraphs: <%= summary.readability.num_paragraphs %>.
+      <li>Total paragraphs: <%= summary[:statistics][:num_paragraphs] %>.
       </li>
-      <li>Total sentences: <%= summary.readability.num_sentences %>.
+      <li>Total sentences: <%= summary[:statistics][:num_sentences] %>.
       </li>
-      <li>Total words: <%= summary.readability.num_words %>.
+      <li>Total words: <%= summary[:statistics][:num_words] %>.
       </li>
-      <li>Total characters: <%= summary.readability.num_characters %>.
+      <li>Total characters: <%= summary[:statistics][:num_characters] %>.
       </li>
     </ul>
     <h4>
       Averages
     </h4>
     <ul>
-      <li>Average words per sentence: <%= summary.readability.words_per_sentence.round(2) %>.
+      <li>Average words per sentence: <%= summary[:statistics][:words_per_sentence].round(2) %>.
       </li>
-      <li>Average syllables per word: <%= summary.readability.syllables_per_word.round(2) %>.
+      <li>Average syllables per word: <%= summary[:statistics][:syllables_per_word].round(2) %>.
       </li>
     </ul><% end %>
     <p>

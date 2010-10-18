@@ -19,32 +19,32 @@ Produced: <%= @date.strftime('%d-%b-%Y %H:%M:%S') %>.
 ### List of Files ###
 
 <% @summaries.each do |summary| %>
-* <%= summary.filename %>
+* <%= summary[:filename] %>
 
 <% end %>
 
 ## File Summaries ##
 <% @summaries.each do |summary| %>
 
-### Summary for <%= summary.filename %> ###
+### Summary for <%= summary[:filename] %> ###
 
 #### Readability ####
 
-* Flesch Reading Ease: <%= summary.readability.flesch.round(2) %>. This text is <%= @verdict[:flesch] %>.
-* Flesch-Kincaid Grade Level: <%= summary.readability.kincaid.round(2) %>. This text should be understandable by <%= @verdict[:kincaid] %>.
-* Gunning Fog Index: <%= summary.readability.fog.round(2) %>. This text should be understandable by <%= @verdict[:fog] %>.
+* Flesch Reading Ease: <%= summary[:statistics][:flesch].round(2) %>. This text is <%= @verdict[:flesch] %>.
+* Flesch-Kincaid Grade Level: <%= summary[:statistics][:kincaid].round(2) %>. This text should be understandable by <%= @verdict[:kincaid] %>.
+* Gunning Fog Index: <%= summary[:statistics][:fog].round(2) %>. This text should be understandable by <%= @verdict[:fog] %>.
 
 #### Totals ####
 
-* Total paragraphs: <%= summary.readability.num_paragraphs %>.
-* Total sentences: <%= summary.readability.num_sentences %>.
-* Total words: <%= summary.readability.num_words %>.
-* Total characters: <%= summary.readability.num_characters %>.
+* Total paragraphs: <%= summary[:statistics][:num_paragraphs] %>.
+* Total sentences: <%= summary[:statistics][:num_sentences] %>.
+* Total words: <%= summary[:statistics][:num_words] %>.
+* Total characters: <%= summary[:statistics][:num_characters] %>.
 
 #### Averages ####
 
-* Average words per sentence: <%= summary.readability.words_per_sentence.round(2) %>.
-* Average syllables per word: <%= summary.readability.syllables_per_word.round(2) %>.
+* Average words per sentence: <%= summary[:statistics][:words_per_sentence].round(2) %>.
+* Average syllables per word: <%= summary[:statistics][:syllables_per_word].round(2) %>.
 <% end %>
 
 - - -

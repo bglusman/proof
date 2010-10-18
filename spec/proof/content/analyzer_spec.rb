@@ -12,7 +12,7 @@ module Proof
         it "should generate a Summary from the provided content" do
           content = contents('small.txt')
           summary = Proof::Content::Analyzer.analyze('small.txt', content, READABILITY_ATTRIBUTES)
-          summary.should be_kind_of(Proof::Content::Summary)
+          summary.should be_kind_of(Hash)
         end
 
       end
