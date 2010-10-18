@@ -8,7 +8,7 @@ module Proof
     extend self
     attr_accessor :config, :output
       
-      REPORT_TITLE = 'Readability Report'
+      DEFAULT_TITLE = 'Readability Report'
       
       REPORT_TOTALS = [:num_paragraphs, :num_sentences, :num_words, :num_characters]
       
@@ -55,6 +55,10 @@ module Proof
           'Specifies the format of the output' ) do |f|
           @config[:format] = f.to_sym
         end
+        opts.on( '-t', '--title TITLE', 
+          'Specifies the title of the report' ) do |t|
+          @config[:title] = t
+        end
         opts.on( '-v', '--version', 'Show version' ) do
           puts "Proof #{Proof::VERSION}"
           exit
@@ -79,7 +83,8 @@ module Proof
         content = read_file(filename)
         summaries << Proof::Content::Analyzer.summarize(filename, content, SUMMARY_ATTRIBUTES)
       end
-      report_builder = Proof::ReportBuilder.new(REPORT_TITLE, summaries, REPORT_TOTALS)
+      @config[:title] = DEFAULT_TITLE if @config[:title] == nil
+      report_builder = Proof::ReportBuilder.new(config[:title], summaries, REPORT_TOTALS)
       report_builder.report()
     end
     
