@@ -18,71 +18,7 @@ module Proof
       end
     
     end
-    
-    describe "#report calculated total values" do
-
-      it "should give the total number of characters" do
-        report_builder = Proof::ReportBuilder.new(summaries)
-        report = report_builder.report()
-        total = report.total(:num_characters)
-        total.should_not be_nil
-      end
-      
-      it "should give the total number of paragraphs" do
-        report_builder = Proof::ReportBuilder.new(summaries)
-        report = report_builder.report()
-        total = report.total(:num_paragraphs)
-        total.should_not be_nil
-      end
-      
-      it "should give the total number of sentences" do
-        report_builder = Proof::ReportBuilder.new(summaries)
-        report = report_builder.report()
-        total = report.total(:num_sentences)
-        total.should_not be_nil
-      end
-      
-      it "should give the total number of words" do
-        report_builder = Proof::ReportBuilder.new(summaries)
-        report = report_builder.report()
-        total = report.total(:num_sentences)
-        total.should_not be_nil
-      end
-      
-    end
-    
-    describe "#report calculated mean values" do
-
-      it "should give the mean number of characters" do
-        report_builder = Proof::ReportBuilder.new(summaries)
-        report = report_builder.report()
-        mean = report.mean(:num_characters)
-        mean.should_not be_nil
-      end
-      
-      it "should give the mean number of paragraphs" do
-        report_builder = Proof::ReportBuilder.new(summaries)
-        report = report_builder.report()
-        mean = report.mean(:num_paragraphs)
-        mean.should_not be_nil
-      end
-      
-      it "should give the mean number of sentences" do
-        report_builder = Proof::ReportBuilder.new(summaries)
-        report = report_builder.report()
-        mean = report.mean(:num_sentences)
-        mean.should_not be_nil
-      end
-      
-      it "should give the mean number of words" do
-        report_builder = Proof::ReportBuilder.new(summaries)
-        report = report_builder.report()
-        mean = report.mean(:num_sentences)
-        mean.should_not be_nil
-      end
-      
-    end
-    
+        
   end
   
 end
