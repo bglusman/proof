@@ -7,6 +7,10 @@ module Proof
   module Application
     extend self
     attr_accessor :config, :output
+      
+    READABILITY_ATTRIBUTES = [:flesch, :fog, :kincaid, 
+      :num_paragraphs, :num_sentences, :num_words, :num_characters, 
+      :words_per_sentence, :syllables_per_word]
         
     FORMATS = {
       :condensed => {:template => 'condensed.txt.erb'},
@@ -69,7 +73,7 @@ module Proof
       summaries = []
       filenames.each do |filename|
         content = read_file(filename)
-        summaries << Proof::Content::Analyzer.analyze(filename, content)
+        summaries << Proof::Content::Analyzer.analyze(filename, content, READABILITY_ATTRIBUTES)
       end
       report_builder = Proof::ReportBuilder.new(summaries)
       report_builder.report()

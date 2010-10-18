@@ -2,6 +2,10 @@
 
 require 'proof'
 
+READABILITY_ATTRIBUTES = [:flesch, :fog, :kincaid, 
+  :num_paragraphs, :num_sentences, :num_words, :num_characters, 
+  :words_per_sentence, :syllables_per_word]
+
 def contents(filename)
   File.read(File.join('spec', 'files', filename))
 end
@@ -14,7 +18,8 @@ end
 def mock_summaries(total)
   summaries = []
   total.times do |p|
-    summaries << Proof::Content::Analyzer.analyze("small.txt", contents('small.txt'))
+    summaries << Proof::Content::Analyzer.analyze("small.txt",
+    contents('small.txt'), READABILITY_ATTRIBUTES)
   end
   summaries
 end
