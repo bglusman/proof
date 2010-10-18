@@ -17,12 +17,12 @@ module Proof
 
       end
   
-      describe "#summary" do
+      describe "#statistics" do
   
-        it "should generate a summary from the provided content" do
+        it "should generate a Hash of statistics from the provided content" do
           content = contents('small.txt')
           analyzer = Proof::Content::Analyzer.new(content)
-          summary = analyzer.summary(READABILITY_ATTRIBUTES)
+          summary = analyzer.statistics(READABILITY_ATTRIBUTES)
           summary.should be_kind_of(Hash)
         end
 

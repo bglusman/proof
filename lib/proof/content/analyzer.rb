@@ -11,12 +11,12 @@ module Proof
         analyzer = self.new(content)
         summary = {}
         summary[:name] = name
-        summary[:statistics] = analyzer.summary(attributes)
+        summary[:statistics] = analyzer.statistics(attributes)
         summary
       end
       
       # Returns a Hash of the specified readability statistics
-      def summary(attributes)
+      def statistics(attributes)
         results = {}
         attributes.each do |a|
           results[a] = self.send(a)
