@@ -35,7 +35,7 @@ module Proof
             "an average 6th grade student"
           when value >= 5.0
             "an average 5th student"
-          when value < 4.0
+          when value < 5.0
             "anyone below 5th grade"
           end
       end
