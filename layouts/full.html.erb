@@ -22,7 +22,7 @@
       </li>
       <li>Flesch-Kincaid Grade Level: <%= @verdict[:kincaid][:score].round(2) %>. This text should be understandable by <%= @verdict[:kincaid][:explanation] %>.
       </li>
-      <li>Gunning Fog Index: <%= @verdict[:flesch][:score].round(2) %>. This text should be understandable by <%= @verdict[:flesch][:explanation] %>.
+      <li>Gunning Fog Index: <%= @verdict[:fog][:score].round(2) %>. This text should be understandable by <%= @verdict[:fog][:explanation] %>.
       </li>
     </ul>
     <h3>
