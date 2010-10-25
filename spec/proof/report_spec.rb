@@ -9,7 +9,7 @@ module Proof
     
     describe "#render" do
     
-      it "should render itself using a Markdown template" do
+      it "renders itself using a Markdown template" do
         template = get_template('short.md.erb') 
         report_builder = Proof::ReportBuilder.new('Readability Report', summaries, REPORT_TOTALS)
         report = report_builder.report()

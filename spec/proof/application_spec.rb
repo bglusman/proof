@@ -11,33 +11,33 @@ module Proof
       Proof::Application.output = output
     end
     
-    it "should build a list of files for a single directory" do
+    it "builds a list of files for a single directory" do
       sources = [File.join('spec', 'files')]
       files = Proof::Application.list_files(sources)
       files.length.should == 2
     end
     
-    it "should build a list of files from two sources" do
+    it "builds a list of files from two sources" do
       sources = [File.join('spec', 'files', 'gutenburg'), 
         File.join('spec', 'files', 'small.txt')]
       files = Proof::Application.list_files(sources)
       files.length.should == 2
     end
     
-    it "should get a template for the short report format" do
+    it "gets a template for the short report format" do
       template = Proof::Application.get_template(:short)
       template.should_not be_nil
     end
     
     describe "#read_arguments" do
     
-      it "should read a single filename from arguments" do
+      it "reads a single filename from arguments" do
         args = ['example.txt']
         sources = Proof::Application.read_arguments(args)
         sources[0].should == 'example.txt'
       end
     
-      it "should read three filenames from arguments" do
+      it "reads three filenames from arguments" do
         args = ['example1.txt', 'example2.txt', 'example3.txt']
         sources = Proof::Application.read_arguments(args)
         sources[0].should == 'example1.txt'
@@ -45,13 +45,13 @@ module Proof
         sources[2].should == 'example3.txt'
       end
     
-      it "should set output format from short-form argument" do
+      it "sets the output format from a short-form argument" do
         args = ['-f', 'full', 'example.txt']
         Proof::Application.read_arguments(args)
         Proof::Application.config[:format].should == :full
       end
     
-      it "should set output format from long-form argument" do
+      it "sets the output format from a long-form argument" do
         args = ['--format=full', 'example.txt']
         Proof::Application.read_arguments(args)
         Proof::Application.config[:format].should == :full
@@ -61,7 +61,7 @@ module Proof
 
     describe "#read_file" do
     
-      it "should read the contents of the source file" do
+      it "reads the contents of the source file" do
         filename = File.join('spec', 'files', 'small.txt')
         content = Proof::Application.read_file(filename)
         content.length == 3481
@@ -71,7 +71,7 @@ module Proof
       
     describe "#report" do
 
-      it "should return a Report for a single source file" do
+      it "returns a Report for a single source file" do
         filename = File.join('spec', 'files', 'small.txt')
         sources = [filename]
         report = Proof::Application.report(sources)
