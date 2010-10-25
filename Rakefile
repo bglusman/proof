@@ -17,7 +17,7 @@ end
 
 desc "Run specs"
 Spec::Rake::SpecTask.new do |t|
-  t.spec_opts = ['--color', '--format nested']
+  t.spec_opts = ['--options', 'spec/spec.opts']
 end
 
 desc "Start a console"
