@@ -1,53 +1,43 @@
-Project Specification
----------------------
+# Project Specification #
 
-I would expect the default output to be a friendly report in Markdown format plain-text by default, summarising the results. Here's a first draft with the scores from the Lorem Ipsum sample:
+Proof should provide a framework for readability and possibly other forms of text analysis.
 
-$ nameless-app lorem.txt
+## Features ##
 
-Readability Report for lorem.txt
-================================
+### Inputs ###
 
-Analysis
------------
+Proof currently accepts only plain-text files. It might be useful to provide features to extract plain-text from documents that use common markup formats.
 
-Flesch Reading Ease: This document should be understandable by an average person of 13 to 15 years old.
-Flesch-Kincaid Grade Level: This document should be understandable by an average student of the 11th grade.
-Gunning Fog Index: 15. This is higher than 12, the level for general purpose documents.
+### Outputs ###
 
-Scores
----------
-
-* Flesch score: 23.53 
-* Flesch-Kincaid Grade Level: 11.81 
-* Gunning Fog Index: 15.03 
-
-Totals
---------
-
-* Number of paragraphs: 5 
-* Number of sentences: 71 
-* Number of words: 523 
-* Number of characters: 3482 
-
-Averages
--------------
-
-* Average words per sentence: 7.37 
-* Average syllables per word: 2.08 
-
-It should also have the option to return the same form of report in HTML and the raw data in other formats for automation - a basic line per item format, YAML, and possibly JSON.
-
-$ nameless-app --report-format=condensed my-book/
-
-Root Dir: my-book, Flesch Score: 23.53, Flesch-Kincaid Level: 11.81, Fog Index: 15.03, Para: 5, Sent: 71, Words: 523, Chars: 3482, Avg Words/Sentence: 7.37, Avg Syllables/Word: 2.08;
-File Name: chapter-1.txt, Flesch Score: 23.53, Flesch-Kincaid Level: 11.81, Fog Index: 15.03, Para: 5, Sent: 71, Words: 523, Chars: 3482, Avg Words/Sentence: 7.37, Avg Syllables/Word: 2.08;
-File Name: chapter-2.txt, Flesch Score: 23.53, Flesch-Kincaid Level: 11.81, Fog Index: 15.03, Para: 5, Sent: 71, Words: 523, Chars: 3482, Avg Words/Sentence: 7.37, Avg Syllables/Word: 2.08;
-File Name: chapter-3.txt, Flesch Score: 23.53, Flesch-Kincaid Level: 11.81, Fog Index: 15.03, Para: 5, Sent: 71, Words: 523, Chars: 3482, Avg Words/Sentence: 7.37, Avg Syllables/Word: 2.08
+Proof currently outputs results in text formats with ERb templates. Ideally it should either be able to serialize results as YAML and JSON, or at least suggest defined mechanisms to do so.
 
 It should probably also have a pass/fail mode where the user specifies an acceptable level and the utility just returns pass or fail according to whether the source meets that level of readability:
 
-$ nameless-app --pass-fail-test=fog --pass-fail-level=12 my-book/
+$ proof --pass-fail-test=fog --pass-fail-level=12 my-book/
 FAIL
 
 This is probably not a good idea in most cases, but could be useful in situations where documents are required to meet a particular standard for publication.
+
+## Architecture ##
+
+Proof currently uses the Lingua library for the following services:
+
+* Rendering text into the component sentences (Lingua::EN::Sentence)
+* Rendering text into the component syllables (Lingua::EN::Syllable)
+* Rendering text into the component paragraphs (Lingua::EN::Paragraph)
+* Calculating readability results using sums of outputs of the previous three (Lingua::EN::Readability).
+
+## Related Projects ##
+
+The punkt-segmenter offers a more sophisticated system for deriving sentences:
+
+http://github.com/lfcipriani/punkt-segmenter
+
+This is a port of some NLTK functionality. NLTK is a large Open Source project for Natural Language parsing, written in Python:
+
+http://www.nltk.org/
+
+The Ruby Linguistics library has some sentence handling facilities, but is not directly applicable:
+
+http://github.com/ged/linguistics
