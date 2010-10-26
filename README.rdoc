@@ -65,6 +65,8 @@ The source code is published on GitHub:
 
 * http://github.com/stuartellis/proof
 
+This project is developed with and for Ruby 1.9.
+
 == License
 
 (The MIT License)
