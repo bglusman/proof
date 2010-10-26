@@ -28,7 +28,11 @@ Proof currently uses the Lingua library for the following services:
 * Rendering text into the component paragraphs (Lingua::EN::Paragraph)
 * Calculating readability results using sums of outputs of the previous three (Lingua::EN::Readability).
 
-## Related Projects ##
+## Related Projects and Resources ##
+
+This Stack Overflow discussion provides code for implementing syllable counts in Ruby:
+
+http://stackoverflow.com/questions/1271918/ruby-count-syllables
 
 The punkt-segmenter offers a more sophisticated system for deriving sentences:
 
