@@ -78,7 +78,7 @@ module Proof
         content = File.read(filename)
         summaries << Proof::Content::Analyzer.summarize(filename, content, SUMMARY_ATTRIBUTES)
       end
-      @config[:title] = DEFAULT_TITLE if @config[:title] == nil
+      @config[:title] = DEFAULT_TITLE unless @config[:title]
       report_builder = Proof::ReportBuilder.new(config[:title], summaries, REPORT_TOTALS)
       report_builder.report()
     end
@@ -93,7 +93,7 @@ module Proof
       else
         files = list_files(sources)
         report = report(files)
-        @config[:format] = :short if @config[:format] == nil
+        @config[:format] = :short unless @config[:format]
         template = get_template(@config[:format])
         @output.puts report.render(template)
         exit
