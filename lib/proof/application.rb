@@ -25,7 +25,7 @@ module Proof
     
     # Returns the template for the specified format
     def get_template(format)
-      read_file(File.join('layouts', FORMATS[format][:template]))
+      File.read(File.join('layouts', FORMATS[format][:template]))
     end
         
     # Returns a list of all of the files from the given sources
@@ -70,17 +70,12 @@ module Proof
       end
       options.parse!(args)
     end
-
-    # Returns the contents of the specified file    
-    def read_file(filename)
-      File.read(filename)
-    end
     
     # Returns a Report for the specified files 
     def report(filenames)
       summaries = []
       filenames.each do |filename|
-        content = read_file(filename)
+        content = File.read(filename)
         summaries << Proof::Content::Analyzer.summarize(filename, content, SUMMARY_ATTRIBUTES)
       end
       @config[:title] = DEFAULT_TITLE if @config[:title] == nil

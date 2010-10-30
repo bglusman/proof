@@ -58,16 +58,6 @@ module Proof
       end
     
     end
-
-    describe "#read_file" do
-    
-      it "reads the contents of the source file" do
-        filename = File.join('spec', 'files', 'small.txt')
-        content = Proof::Application.read_file(filename)
-        content.length == 3481
-      end
-        
-    end
       
     describe "#report" do
 
