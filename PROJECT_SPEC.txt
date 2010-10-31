@@ -45,3 +45,11 @@ http://www.nltk.org/
 The Ruby Linguistics library has some sentence handling facilities, but is not directly applicable:
 
 http://github.com/ged/linguistics
+
+The OTS library provides text summarization:
+
+http://libots.sourceforge.net/
+
+It is used by the TLDR Web application:
+
+http://tldr.r10.railsrumble.com/
