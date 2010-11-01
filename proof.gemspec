@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   s.add_dependency "lingua", ">= 0.6.2"
   
   s.add_development_dependency "bundler", ">= 1.0.0"
+  s.add_development_dependency "aruba", "~> 0.2.3"
   s.add_development_dependency "cucumber", "~> 0.9.3"
   s.add_development_dependency "rspec", "~> 1.3.1"
 
