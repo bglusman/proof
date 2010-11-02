@@ -24,3 +24,9 @@ desc "Start a console"
 task :console do
   exec 'irb -I lib -r proof'
 end
+
+require 'cucumber/rake/task'
+
+Cucumber::Rake::Task.new do |t|
+  t.cucumber_opts = %w{--format pretty}
+end
