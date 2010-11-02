@@ -1,3 +1,4 @@
+# language:en
 Feature: output help
 
     In order to learn the available options
