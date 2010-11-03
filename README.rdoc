@@ -67,6 +67,24 @@ The source code is published on GitHub:
 
 This project is developed with and for Ruby 1.9.
 
+=== Setting Up a Development Copy
+
+First, clone this project in the usual way:
+
+git clone git://github.com/stuartellis/proof.git
+
+Install the latest version of Bundler[http://gembundler.com], if you don't already have it:
+
+gem install bundler
+
+Use Bundler to install the required gems:
+
+bundle install
+
+Run the RSpec test suite to ensure that everything is in order:
+
+rake spec
+
 == License
 
 (The MIT License)
