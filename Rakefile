@@ -27,3 +27,5 @@ desc "Start a console"
 task :console do
   exec 'irb -I lib -r proof'
 end
+
+task :default => ['spec']
