@@ -7,25 +7,11 @@ module Proof
   module Application
     extend self
     attr_accessor :config, :output
-      
-      DEFAULT_TITLE = 'Readability Report'
-      
-      REPORT_TOTALS = [:num_paragraphs, :num_sentences, :num_words, :num_characters]
-      
-      SUMMARY_ATTRIBUTES = [:flesch, :fog, :kincaid, 
-        :num_paragraphs, :num_sentences, :num_words, :num_characters, 
-        :words_per_sentence, :syllables_per_word]
-             
-      FORMATS = {
-        :condensed => {:template => 'condensed.txt.erb'},
-        :full => {:template => 'full.md.erb'},
-        :html => {:template => 'full.html.erb'},
-        :short => {:template => 'short.md.erb'}
-      }
-    
+
     # Returns the template for the specified format
     def get_template(format)
-      File.read(File.join('layouts', FORMATS[format][:template]))
+      templates = setting(:formats)
+      File.read(File.join(setting(:layouts_dir), templates[format]))
     end
         
     # Returns a list of all of the files from the given sources
@@ -45,7 +31,7 @@ module Proof
         
     # Parse the provided arguments
     def read_arguments(args)
-      @config = {} if @config == nil
+      @config = Proof::Configuration::DEFAULTS unless @config
       options = OptionParser.new() do |opts|
         opts.banner = "Usage: proof [options] FILE1 FILE2 FILE3"
         opts.separator ""
@@ -75,11 +61,10 @@ module Proof
     def report(filenames)
       summaries = []
       filenames.each do |filename|
-        content = File.read(filename)
-        summaries << Proof::Content::Analyzer.summarize(filename, content, SUMMARY_ATTRIBUTES)
+        content = File.read(filename) 
+        summaries << Proof::Content::Analyzer.summarize(filename, content, setting(:summary_attributes))
       end
-      @config[:title] = DEFAULT_TITLE unless @config[:title]
-      report_builder = Proof::ReportBuilder.new(config[:title], summaries, REPORT_TOTALS)
+      report_builder = Proof::ReportBuilder.new(setting(:report_title), summaries, setting(:report_totals))
       report_builder.report()
     end
     
@@ -93,12 +78,20 @@ module Proof
       else
         files = list_files(sources)
         report = report(files)
-        @config[:format] = :short unless @config[:format]
-        template = get_template(@config[:format])
+        template = get_template(setting(:report_format))
         @output.puts report.render(template)
         exit
       end
     end
-        
+    
+    # Returns configuration setting or the default value
+    def setting(key)
+      if @config
+        @config[key] || Proof::Configuration::DEFAULTS[key]
+      else
+        Proof::Configuration::DEFAULTS[key]
+      end
+    end
+    
   end
 end

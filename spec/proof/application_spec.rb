@@ -11,6 +11,10 @@ module Proof
       Proof::Application.output = output
     end
     
+    before(:each) do
+      Proof::Application.config = nil
+    end
+    
     it "builds a list of files for a single directory" do
       sources = [File.join('spec', 'files')]
       files = Proof::Application.list_files(sources)
@@ -69,7 +73,33 @@ module Proof
       end
 
     end
+    
+    describe "#setting" do
       
+      it "should return a single default setting" do
+        setting = Proof::Application.setting(:report_title)
+        setting.should == 'Readability Report'
+      end
+      
+      it "should return a default Hash setting" do
+        setting = Proof::Application.setting(:formats)
+        setting.should be_kind_of(Hash)
+      end
+      
+      it "should return a single setting from the config hash" do
+        Proof::Application.config = { :test_setting => 'Test Setting' }
+        setting = Proof::Application.setting(:test_setting)
+        setting.should == 'Test Setting'
+      end
+      
+      it "should return a Hash from the config hash" do
+        Proof::Application.config = { :test_hash => {:test_setting => 'Test Setting'} }
+        setting_hash = Proof::Application.setting(:test_hash)
+        setting_hash.should include(:test_setting)
+      end
+      
+    end
+    
   end
       
 end
