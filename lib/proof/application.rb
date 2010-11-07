@@ -10,8 +10,7 @@ module Proof
 
     # Returns the template for the specified format
     def get_template(format)
-      templates = setting(:formats)
-      File.read(File.join(setting(:layouts_dir), templates[format]))
+      File.read(File.join(setting(:layouts_dir), setting(:formats)[format]))
     end
         
     # Returns a list of all of the files from the given sources
