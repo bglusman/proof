@@ -41,6 +41,10 @@ module Proof
           'Specifies the format of the report' ) do |f|
           @config[:format] = f.to_sym
         end
+        opts.on( '-l', '--layouts DIRECTORY', 
+           'Specifies the directory of report templates' ) do |dir|
+           @config[:layouts_dir] = dir
+         end
         opts.on( '-t', '--title TITLE', 
           'Specifies the title of the report' ) do |t|
           @config[:title] = t
