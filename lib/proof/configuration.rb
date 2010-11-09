@@ -10,7 +10,7 @@ module Proof
           :html => 'full.html.erb',
           :short => 'short.md.erb'
         },
-      :layouts_dir => 'layouts',
+      :layouts_dir => nil,
       :report_format => :short,
       :report_title => 'Readability Report', 
       :report_totals => [

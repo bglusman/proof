@@ -13,7 +13,7 @@ def contents(filename)
 end
 
 def get_template(filename)
-  File.read(File.join('layouts', filename))  
+  File.read(File.join('lib', 'proof', 'layouts', filename))  
 end
 
 # FIXME: This should be cleverer

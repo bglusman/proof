@@ -10,7 +10,8 @@ module Proof
 
     # Returns the template for the specified format
     def get_template(format)
-      File.read(File.join(setting(:layouts_dir), setting(:formats)[format]))
+      layouts_dir = setting(:layouts_dir) || File.join(module_dir(), 'layouts')
+      File.read(File.join(layouts_dir, setting(:formats)[format]))
     end
         
     # Returns a list of all of the files from the given sources
@@ -27,7 +28,12 @@ module Proof
       end
       files
     end
-        
+
+    # Returns the full path to the directory that holds this file 
+    def module_dir()
+      File.dirname File.absolute_path(__FILE__)
+    end
+ 
     # Parse the provided arguments
     def read_arguments(args)
       @config = Proof::Configuration::DEFAULTS unless @config

@@ -14,25 +14,42 @@ module Proof
     before(:each) do
       Proof::Application.config = nil
     end
+
+    describe "#get_template" do
+
+      it "gets a template for the short report format" do
+        template = Proof::Application.get_template(:short)
+        template.should_not be_nil
+      end
     
-    it "builds a list of files for a single directory" do
-      sources = [File.join('spec', 'files')]
-      files = Proof::Application.list_files(sources)
-      files.length.should == 2
     end
     
-    it "builds a list of files from two sources" do
-      sources = [File.join('spec', 'files', 'gutenburg'), 
-        File.join('spec', 'files', 'small.txt')]
-      files = Proof::Application.list_files(sources)
-      files.length.should == 2
-    end
+    describe "#list_files" do
     
-    it "gets a template for the short report format" do
-      template = Proof::Application.get_template(:short)
-      template.should_not be_nil
-    end
+      it "builds a list of files for a single directory" do
+        sources = [File.join('spec', 'files')]
+        files = Proof::Application.list_files(sources)
+        files.length.should == 2
+      end
     
+      it "builds a list of files from two sources" do
+        sources = [File.join('spec', 'files', 'gutenburg'), 
+          File.join('spec', 'files', 'small.txt')]
+        files = Proof::Application.list_files(sources)
+        files.length.should == 2
+      end
+        
+    end
+
+    describe "#module_dir" do
+
+      it "returns the directory containing the module file" do
+        path = Proof::Application.module_dir()
+        path.should match /proof$/
+      end
+      
+    end
+        
     describe "#read_arguments" do
     
       it "reads a single filename from arguments" do
