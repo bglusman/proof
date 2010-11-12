@@ -18,6 +18,14 @@ module Proof
       end
     
     end
+    
+    describe "#words_and_syllables" do
+      it "counts number of words and syllables in provided text var or defaults to text method" do
+        syllables.should_not be_nil
+        words.should_not be_nil
+      end
+      
+    end
         
   end
   
