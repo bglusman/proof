@@ -25,3 +25,11 @@ def mock_summaries(total)
   end
   summaries
 end
+
+def syllables
+  Proof::Content::Syllables.words_and_syllables(contents('small.txt'))[1]
+end
+
+def words
+  Proof::Content::Syllables.words_and_syllables(contents('small.txt'))[0]
+end
